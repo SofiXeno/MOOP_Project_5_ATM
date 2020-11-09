@@ -18,7 +18,6 @@ ATMSelector::ATMSelector(QObject *parent):
 {
     connect(socket_, &ATMSelectorSocket::receivedATMParams,
             this, &ATMSelector::updateParams);
-    socket_->o
 }
 
 ATMSelector::~ATMSelector(){
