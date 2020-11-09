@@ -14,3 +14,8 @@ ATMSelectorWidget::~ATMSelectorWidget()
 {
     delete ui_;
 }
+
+void ATMSelectorWidget::on_refreshButton__clicked()
+{
+    out_->refreshATMParams();
+}

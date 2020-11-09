@@ -16,6 +16,9 @@ public:
     explicit ATMSelectorWidget(ATMSelector* out, QWidget *parent = nullptr);
     ~ATMSelectorWidget();
 
+private slots:
+    void on_refreshButton__clicked();
+
 private:
     ATMSelector* out_;
     Ui::ATMSelectorWidget *ui_;

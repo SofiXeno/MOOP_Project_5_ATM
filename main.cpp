@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
     ATMSelectorWidget widget(&selector);
     widget.show();
 
+  //  selector.refreshATMParams();
 
     //TODO add alternate launch ATM
     return a.exec();

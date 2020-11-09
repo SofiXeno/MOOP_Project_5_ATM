@@ -1,5 +1,6 @@
 #include "atmselectorsocket.h"
 #include "Utility/utilities.h"
+#include <QJsonArray>
 
 QUrl ATMSelectorSocket::HOST_URL = Utilities::getInstance().getVariable("ATMSelectorSocket_host_url");
 QString ATMSelectorSocket::EVENT_NAME = Utilities::getInstance().getVariable("ATMSelectorSocket_event_name");
@@ -28,10 +29,17 @@ void ATMSelectorSocket::doOnTextMessageReceived(const QJsonObject & in)
 
 }
 
-QList<ATMParams> ATMSelectorSocket::parseParams(const QJsonValue &)
+QList<ATMParams> ATMSelectorSocket::parseParams(const QJsonValue & val)
 {
-    // PARSE JSON TO ATMParams and return
-    return QList<ATMParams>();
+    // CHECK FOR ERRORS
+    QJsonArray ps = val.toArray();
+    QList<ATMParams> res;
+    for(int i =0; i< ps.size(); ++i)
+    {
+        res.append(ATMParams::jsonToObject(ps.at(i)));
+        // CATCH ERRORS
+    }
+    return res;
 }
 
 ATMSelectorSocket::ATMSelectorSocket(QObject* parent):

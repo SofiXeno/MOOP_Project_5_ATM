@@ -2,6 +2,7 @@
 
 void AppSocket::doOnConnected()
 {
+    qDebug() << "connected";
     connect(socket_, &QWebSocket::textMessageReceived,
             this, &AppSocket::onTextMessageReceived);
 }
@@ -64,6 +65,7 @@ AppSocket::AppSocket(const QUrl &url, QObject *parent):
 
 AppSocket::~AppSocket()
 {
+    socket_->close();
     delete socket_;
 }
 
