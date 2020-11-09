@@ -6,12 +6,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    ATMSelector* selector = new ATMSelector();
-    ATMSelectorWidget widget(selector);
+    ATMSelector selector;
+    ATMSelectorWidget widget(&selector);
     widget.show();
 
 
     //TODO add alternate launch ATM
-
     return a.exec();
 }

@@ -12,6 +12,5 @@ ATMSelectorWidget::ATMSelectorWidget(ATMSelector* out,QWidget *parent) :
 
 ATMSelectorWidget::~ATMSelectorWidget()
 {
-    delete out_;
     delete ui_;
 }
