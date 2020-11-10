@@ -25,6 +25,96 @@ SOURCES += \
     ATMSelector/atmselector.cpp \
     ATMSelector/atmselectorwidget.cpp \
     Utility/utilities.cpp \
+    form.cpp \
+    form2.cpp \
+    form2.cpp \
+    main.cpp \
+    mainwindow.cpp
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h \
+    form2.h \
+    mainwindow.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui \
+    mainwindow.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+SOURCES += \
+    ATM/Socket/appsocket.cpp \
+    ATM/Socket/atmselectorsocket.cpp \
+    ATM/Socket/atmsocket.cpp \
+    ATM/atm.cpp \
+    ATM/atmparams.cpp \
+    ATMSelector/atmselector.cpp \
+    ATMSelector/atmselectorwidget.cpp \
+    Utility/utilities.cpp \
+    form.cpp \
+    form2.cpp \
     main.cpp
 
 HEADERS += \
@@ -35,17 +125,821 @@ HEADERS += \
     ATM/atmparams.h \
     ATMSelector/atmselector.h \
     ATMSelector/atmselectorwidget.h \
-    Utility/utilities.h
+    Utility/utilities.h \
+    form.h \
+    form2.h \
+    form2.h
 
 FORMS += \
-    ATMSelector/atmselectorwidget.ui
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES +=
+RESOURCES += \
+    resource.qrc
 
 DISTFILES += \
-    config.json
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+SOURCES += \
+    ATM/Socket/appsocket.cpp \
+    ATM/Socket/atmselectorsocket.cpp \
+    ATM/Socket/atmsocket.cpp \
+    ATM/atm.cpp \
+    ATM/atmparams.cpp \
+    ATMSelector/atmselector.cpp \
+    ATMSelector/atmselectorwidget.cpp \
+    Utility/utilities.cpp \
+    form.cpp \
+    form2.cpp \
+    main.cpp
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+SOURCES += \
+    ATM/Socket/appsocket.cpp \
+    ATM/Socket/atmselectorsocket.cpp \
+    ATM/Socket/atmsocket.cpp \
+    ATM/atm.cpp \
+    ATM/atmparams.cpp \
+    ATMSelector/atmselector.cpp \
+    ATMSelector/atmselectorwidget.cpp \
+    Utility/utilities.cpp \
+    form.cpp \
+    form2.cpp \
+    main.cpp
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+SOURCES += \
+    ATM/Socket/appsocket.cpp \
+    ATM/Socket/atmselectorsocket.cpp \
+    ATM/Socket/atmsocket.cpp \
+    ATM/atm.cpp \
+    ATM/atmparams.cpp \
+    ATMSelector/atmselector.cpp \
+    ATMSelector/atmselectorwidget.cpp \
+    Utility/utilities.cpp \
+    form.cpp \
+    form2.cpp \
+    main.cpp
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+HEADERS += \
+    ATM/Socket/appsocket.h \
+    ATM/Socket/atmselectorsocket.h \
+    ATM/Socket/atmsocket.h \
+    ATM/atm.h \
+    ATM/atmparams.h \
+    ATMSelector/atmselector.h \
+    ATMSelector/atmselectorwidget.h \
+    Utility/utilities.h \
+    form.h \
+    form2.h
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro
+
+
+FORMS += \
+    ATMSelector/atmselectorwidget.ui \
+    form.ui \
+    form2.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    config.json \
+    img/atm-250.png \
+    img/bagel_90x95.png
+
+SUBDIRS += \
+    ../BooblikBank/BooblikBank.pro

@@ -42,7 +42,7 @@
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
-   <widget class="QStackedWidget" name="stackedWidget">
+   <widget class="QStackedWidget" name="mainStackedWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -52,15 +52,16 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 225, 164);
+     <string notr="true">background-color: rgb(255, 234, 189);
+
 
 </string>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>12</number>
     </property>
-    <widget class="QWidget" name="page1_cardInsertion">
-     <widget class="QLabel" name="page1_Logo">
+    <widget class="QWidget" name="page0_cardInsertion">
+     <widget class="QLabel" name="page0_Logo">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -76,7 +77,7 @@
        <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
       </property>
      </widget>
-     <widget class="QLabel" name="page1_label">
+     <widget class="QLabel" name="page0_label">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -98,7 +99,7 @@
        <string>Для початку роботи з банкоматом </string>
       </property>
      </widget>
-     <widget class="QLabel" name="page2_label_2">
+     <widget class="QLabel" name="page0_label_2">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -120,7 +121,7 @@
        <string>Вставте картку</string>
       </property>
      </widget>
-     <widget class="QLabel" name="labelP1_cardIns">
+     <widget class="QLabel" name="page0label_cardIns">
       <property name="geometry">
        <rect>
         <x>520</x>
@@ -152,7 +153,7 @@
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QPushButton" name="insertButton_P1">
+     <widget class="QPushButton" name="insertButton_page0">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -192,8 +193,8 @@ border-width: 5px;
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page2_mainMenu">
-     <widget class="QLabel" name="page2_Logo">
+    <widget class="QWidget" name="page1_mainMenu">
+     <widget class="QLabel" name="page1_Logo">
       <property name="geometry">
        <rect>
         <x>350</x>
@@ -212,7 +213,7 @@ border-width: 5px;
        <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
       </property>
      </widget>
-     <widget class="QLabel" name="page2_label">
+     <widget class="QLabel" name="page1_label">
       <property name="geometry">
        <rect>
         <x>280</x>
@@ -359,7 +360,7 @@ border-color: rgb(0, 0, 0);
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page3_pin">
+    <widget class="QWidget" name="page2_pin">
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
@@ -385,6 +386,79 @@ border-color: rgb(0, 0, 0);
        <property name="verticalSpacing">
         <number>0</number>
        </property>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="num6">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="num1">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="num7">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>7</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="1">
         <widget class="QPushButton" name="num5">
          <property name="font">
@@ -409,6 +483,54 @@ border-color: rgb(0, 0, 0);
          </property>
         </widget>
        </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="num0">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="num9">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>9</string>
+         </property>
+        </widget>
+       </item>
        <item row="2" column="1">
         <widget class="QPushButton" name="num8">
          <property name="font">
@@ -430,6 +552,30 @@ border-color: rgb(0, 0, 0);
          </property>
          <property name="text">
           <string>8</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="clearOne">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>&lt; &lt;</string>
          </property>
         </widget>
        </item>
@@ -481,78 +627,6 @@ border-color: rgb(0, 0, 0);
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QPushButton" name="num6">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>6</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QPushButton" name="num0">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <widget class="QPushButton" name="clearOne">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>&lt; &lt;</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
         <widget class="QPushButton" name="num2">
          <property name="font">
@@ -577,82 +651,9 @@ border-color: rgb(0, 0, 0);
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QPushButton" name="num1">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-           <pointsize>13</pointsize>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>1</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QPushButton" name="num9">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>9</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="num7">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>7</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
-     <widget class="QLabel" name="label_page3">
+     <widget class="QLabel" name="label_page2">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -674,7 +675,7 @@ border-color: rgb(0, 0, 0);
        <string>Введіть PIN-код</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="clearButton_page3">
+     <widget class="QPushButton" name="clearButton_page2">
       <property name="geometry">
        <rect>
         <x>310</x>
@@ -705,7 +706,7 @@ border-color: rgb(0, 0, 0);
        <string>Очистити ввід</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="backButton_page3">
+     <widget class="QPushButton" name="backButton_page2">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -739,7 +740,7 @@ border-color: rgb(0, 0, 0);
        <string>&lt; &lt; Назад</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="okButton_page3">
+     <widget class="QPushButton" name="okButton_page2">
       <property name="geometry">
        <rect>
         <x>630</x>
@@ -770,39 +771,7 @@ border-color: rgb(0, 0, 0);
        <string>Підтвердити &gt; &gt;</string>
       </property>
      </widget>
-     <widget class="QLabel" name="pinLabel_page3">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>140</y>
-        <width>251</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Arial</family>
-        <pointsize>23</pointsize>
-       </font>
-      </property>
-      <property name="cursor">
-       <cursorShape>IBeamCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_page3_2">
+     <widget class="QLabel" name="label_page2_2">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -824,32 +793,7 @@ border-color: rgb(0, 0, 0);
        <string>Кількість спроб</string>
       </property>
      </widget>
-     <widget class="QLabel" name="attemptLabel_page3">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>270</y>
-        <width>54</width>
-        <height>54</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>IBeamCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="page2_Logo">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -865,40 +809,605 @@ border-color: rgb(0, 0, 0);
        <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="page4_QR">
-     <widget class="QLabel" name="label_4">
+     <widget class="QLineEdit" name="lineEdit_PIN">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>30</y>
+        <x>280</x>
+        <y>150</y>
         <width>251</width>
-        <height>16</height>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_attemptNum">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>270</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page3_QR">
+     <widget class="QLabel" name="label_3_1">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>20</y>
+        <width>371</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Скануйте QR-код з додатку BooblikBank</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_5">
+     <widget class="QLabel" name="label_3_2">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>80</y>
+        <x>330</x>
+        <y>60</y>
         <width>151</width>
         <height>141</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>QR</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="clearButton_page3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>490</y>
+        <width>191</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 190, 123);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+      </property>
+      <property name="text">
+       <string>Очистити ввід</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="okButton_page3">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>490</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 190, 123);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+      </property>
+      <property name="text">
+       <string>Підтвердити &gt; &gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="page3_Logo">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>91</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>460</y>
+        <width>321</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>На вказанний номер буде висланий SMS пароль</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>340</y>
+        <width>171</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
+       <property name="rightMargin">
+        <number>20</number>
+       </property>
+       <property name="bottomMargin">
+        <number>1</number>
+       </property>
+       <property name="horizontalSpacing">
+        <number>5</number>
+       </property>
+       <property name="verticalSpacing">
+        <number>0</number>
+       </property>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="num5_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="num8_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>8</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="num4_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="num3_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="num6_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="num0_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="clearOne_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>&lt; &lt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="num2_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="num1_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="num9_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>9</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="num7_3">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>7</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_3_3">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>230</y>
+        <width>41</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>або</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3_4">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>260</y>
+        <width>681</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Введіть ваш номер мобільного телефону в форматі +38(ХХХ)ХХХ-ХХ-ХХ</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_telephoneNum">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>310</y>
+        <width>205</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_page3">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>310</y>
+        <width>48</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>+38</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page5_CardNum">
+    <widget class="QWidget" name="page4_CardNum">
      <property name="styleSheet">
       <string notr="true">color: rgb(0, 0, 0);</string>
      </property>
-     <widget class="QLabel" name="page5_label">
+     <widget class="QLabel" name="page4_label">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -926,7 +1435,7 @@ border-color: rgb(0, 0, 0);
         <height>271</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout_3">
+      <layout class="QGridLayout" name="gridLayout_4">
        <property name="leftMargin">
         <number>20</number>
        </property>
@@ -943,7 +1452,7 @@ border-color: rgb(0, 0, 0);
         <number>0</number>
        </property>
        <item row="1" column="1">
-        <widget class="QPushButton" name="num5_5">
+        <widget class="QPushButton" name="num5_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -967,7 +1476,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QPushButton" name="num8_5">
+        <widget class="QPushButton" name="num8_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -991,7 +1500,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QPushButton" name="num4_5">
+        <widget class="QPushButton" name="num4_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1015,7 +1524,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="0" column="2">
-        <widget class="QPushButton" name="num3_5">
+        <widget class="QPushButton" name="num3_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1039,7 +1548,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="1" column="2">
-        <widget class="QPushButton" name="num6_5">
+        <widget class="QPushButton" name="num6_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1063,7 +1572,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QPushButton" name="num0_5">
+        <widget class="QPushButton" name="num0_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1087,7 +1596,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="3" column="2">
-        <widget class="QPushButton" name="clearOne_5">
+        <widget class="QPushButton" name="clearOne_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1111,7 +1620,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QPushButton" name="num2_5">
+        <widget class="QPushButton" name="num2_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1135,7 +1644,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QPushButton" name="num1_5">
+        <widget class="QPushButton" name="num1_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1160,7 +1669,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="2" column="2">
-        <widget class="QPushButton" name="num9_5">
+        <widget class="QPushButton" name="num9_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1184,7 +1693,7 @@ border-color: rgb(0, 0, 0);
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QPushButton" name="num7_5">
+        <widget class="QPushButton" name="num7_4">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1209,7 +1718,7 @@ border-color: rgb(0, 0, 0);
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="backButton_page5">
+     <widget class="QPushButton" name="backButton_page4">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -1243,7 +1752,7 @@ border-color: rgb(0, 0, 0);
        <string>&lt; &lt; Назад</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="clearButton_page5">
+     <widget class="QPushButton" name="clearButton_page4">
       <property name="geometry">
        <rect>
         <x>300</x>
@@ -1274,7 +1783,7 @@ border-color: rgb(0, 0, 0);
        <string>Очистити ввід</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="okButton_page3_2">
+     <widget class="QPushButton" name="okButton_page4">
       <property name="geometry">
        <rect>
         <x>630</x>
@@ -1305,33 +1814,7 @@ border-color: rgb(0, 0, 0);
        <string>Підтвердити &gt; &gt;</string>
       </property>
      </widget>
-     <widget class="QLabel" name="cardNumb_label">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>110</y>
-        <width>591</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>IBeamCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="page5_Logo">
+     <widget class="QLabel" name="page4_Logo">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -1347,7 +1830,7 @@ border-color: rgb(0, 0, 0);
        <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
       </property>
      </widget>
-     <widget class="QLabel" name="page5_Logo2">
+     <widget class="QLabel" name="page4_Logo2">
       <property name="geometry">
        <rect>
         <x>630</x>
@@ -1363,9 +1846,41 @@ border-color: rgb(0, 0, 0);
        <pixmap>:/resources/img/bagel_90x95.png</pixmap>
       </property>
      </widget>
+     <widget class="QLineEdit" name="lineEdit_cardNum">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>120</y>
+        <width>591</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="page6_SumSelec">
-     <widget class="QLabel" name="label_page6">
+    <widget class="QWidget" name="page5_SumSelec">
+     <widget class="QLabel" name="label_page5">
       <property name="geometry">
        <rect>
         <x>300</x>
@@ -1555,7 +2070,7 @@ border-color: rgb(0, 0, 0);
        <string>1000 грн</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="backButton_page6">
+     <widget class="QPushButton" name="backButton_page5">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -1617,7 +2132,7 @@ border-color: rgb(0, 0, 0);
        <string>Інша сума &gt; &gt;</string>
       </property>
      </widget>
-     <widget class="QLabel" name="page6_Logo">
+     <widget class="QLabel" name="page5_Logo">
       <property name="geometry">
        <rect>
         <x>360</x>
@@ -1634,7 +2149,7 @@ border-color: rgb(0, 0, 0);
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page7_AnotherSum">
+    <widget class="QWidget" name="page6_AnotherSum">
      <widget class="QWidget" name="gridLayoutWidget_2">
       <property name="geometry">
        <rect>
@@ -1644,7 +2159,7 @@ border-color: rgb(0, 0, 0);
         <height>271</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout_7">
+      <layout class="QGridLayout" name="gridLayout_6">
        <property name="leftMargin">
         <number>20</number>
        </property>
@@ -1660,8 +2175,8 @@ border-color: rgb(0, 0, 0);
        <property name="verticalSpacing">
         <number>0</number>
        </property>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="num5_7">
+       <item row="2" column="2">
+        <widget class="QPushButton" name="num9_6">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1680,12 +2195,12 @@ border-color: rgb(0, 0, 0);
 </string>
          </property>
          <property name="text">
-          <string>5</string>
+          <string>9</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QPushButton" name="num8_7">
+        <widget class="QPushButton" name="num8_6">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1708,80 +2223,8 @@ border-color: rgb(0, 0, 0);
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="num4_7">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>4</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="num3_7">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>3</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QPushButton" name="num6_7">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>6</string>
-         </property>
-        </widget>
-       </item>
        <item row="3" column="1">
-        <widget class="QPushButton" name="num0_7">
+        <widget class="QPushButton" name="num0_6">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1804,32 +2247,8 @@ border-color: rgb(0, 0, 0);
          </property>
         </widget>
        </item>
-       <item row="3" column="2">
-        <widget class="QPushButton" name="clearOne_7">
-         <property name="font">
-          <font>
-           <family>Arial Black</family>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-         </property>
-         <property name="text">
-          <string>&lt; &lt;</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
-        <widget class="QPushButton" name="num2_7">
+        <widget class="QPushButton" name="num2_6">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1852,8 +2271,104 @@ border-color: rgb(0, 0, 0);
          </property>
         </widget>
        </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="num7_6">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>7</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="num4_6">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="num00_6">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>00</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="num3_6">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+         </property>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
-        <widget class="QPushButton" name="num1_7">
+        <widget class="QPushButton" name="num1_6">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1877,8 +2392,8 @@ border-color: rgb(0, 0, 0);
          </property>
         </widget>
        </item>
-       <item row="2" column="2">
-        <widget class="QPushButton" name="num9_7">
+       <item row="1" column="1">
+        <widget class="QPushButton" name="num5_6">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1897,12 +2412,12 @@ border-color: rgb(0, 0, 0);
 </string>
          </property>
          <property name="text">
-          <string>9</string>
+          <string>5</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="num7_7">
+       <item row="1" column="2">
+        <widget class="QPushButton" name="num6_6">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1921,12 +2436,12 @@ border-color: rgb(0, 0, 0);
 </string>
          </property>
          <property name="text">
-          <string>7</string>
+          <string>6</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QPushButton" name="num00_7">
+       <item row="3" column="2">
+        <widget class="QPushButton" name="clearOne_6">
          <property name="font">
           <font>
            <family>Arial Black</family>
@@ -1945,38 +2460,13 @@ border-color: rgb(0, 0, 0);
 </string>
          </property>
          <property name="text">
-          <string>00</string>
+          <string>&lt; &lt;</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QLabel" name="enterSum_label">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>120</y>
-        <width>321</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>IBeamCursor</cursorShape>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 230);
-border-style: solid;
-border-width: 2px;
-border-color: rgb(0, 0, 0);
-
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="page7_label">
+     <widget class="QLabel" name="page6_label">
       <property name="geometry">
        <rect>
         <x>330</x>
@@ -1998,7 +2488,7 @@ border-color: rgb(0, 0, 0);
        <string>Введіть суму</string>
       </property>
      </widget>
-     <widget class="QLabel" name="page7_Logo">
+     <widget class="QLabel" name="page6_Logo">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -2014,7 +2504,7 @@ border-color: rgb(0, 0, 0);
        <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
       </property>
      </widget>
-     <widget class="QPushButton" name="backButton_page7">
+     <widget class="QPushButton" name="backButton_page6">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -2048,7 +2538,7 @@ border-color: rgb(0, 0, 0);
        <string>&lt; &lt; Назад</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="clearButton_page7">
+     <widget class="QPushButton" name="clearButton_page6">
       <property name="geometry">
        <rect>
         <x>320</x>
@@ -2079,7 +2569,7 @@ border-color: rgb(0, 0, 0);
        <string>Очистити ввід</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="okButton_page3_3">
+     <widget class="QPushButton" name="okButton_page6">
       <property name="geometry">
        <rect>
         <x>630</x>
@@ -2110,8 +2600,37 @@ border-color: rgb(0, 0, 0);
        <string>Підтвердити &gt; &gt;</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="lineEdit_enterSum">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>130</y>
+        <width>271</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="page8_Settings">
+    <widget class="QWidget" name="page7_Settings">
      <widget class="QPushButton" name="Button_changeLang">
       <property name="geometry">
        <rect>
@@ -2196,7 +2715,7 @@ border-color: rgb(0, 0, 0);
        <string>Список доступних банкоматів</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="backButton_page8">
+     <widget class="QPushButton" name="backButton_page7">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -2230,7 +2749,7 @@ border-color: rgb(0, 0, 0);
        <string>&lt; &lt; Назад</string>
       </property>
      </widget>
-     <widget class="QLabel" name="page8_label">
+     <widget class="QLabel" name="page7_label_2">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -2252,7 +2771,7 @@ border-color: rgb(0, 0, 0);
        <string>Оберіть послугу</string>
       </property>
      </widget>
-     <widget class="QLabel" name="page8_Logo">
+     <widget class="QLabel" name="page7_Logo_2">
       <property name="geometry">
        <rect>
         <x>650</x>
@@ -2266,6 +2785,797 @@ border-color: rgb(0, 0, 0);
       </property>
       <property name="pixmap">
        <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page8_ATMsList">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>130</y>
+        <width>701</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>699</width>
+         <height>399</height>
+        </rect>
+       </property>
+       <widget class="QListWidget" name="listWidget">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>681</width>
+          <height>381</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>40</y>
+        <width>381</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Список банкоматів поблизу </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>90</width>
+        <height>95</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page9_BankingMainMenu">
+     <widget class="QLabel" name="label_9_1">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>40</y>
+        <width>561</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Вас вітає система інтеренет банкінгу BooblikBank !</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Button_newUser">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>160</y>
+        <width>301</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 190, 123);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+      </property>
+      <property name="text">
+       <string>Я зарєстрований користувач</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Button_oldUser">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>270</y>
+        <width>301</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 190, 123);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+      </property>
+      <property name="text">
+       <string>Я новий користувач</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="page9_Logo">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>410</y>
+        <width>91</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page10_LoginIntBanking">
+     <widget class="QLabel" name="label_10_1">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>20</y>
+        <width>561</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Вас вітає система інтеренет банкінгу BooblikBank</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10_2">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>100</y>
+        <width>131</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Введіть логін:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10_3">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>160</y>
+        <width>151</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Введіть пароль:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10_4">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>220</y>
+        <width>171</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Повторіть пароль:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Login">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>90</y>
+        <width>461</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Passw">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>150</y>
+        <width>461</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Passwd2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>210</y>
+        <width>461</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="okButton_page10">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>420</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 190, 123);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+      </property>
+      <property name="text">
+       <string>Підтвердити &gt; &gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="page10_Logo">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>370</y>
+        <width>91</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10_5">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>290</y>
+        <width>401</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>*** Просимо Вас авторизуватися ***</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page11_RegistrationIntBanking">
+     <widget class="QLabel" name="label_11_1">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>160</y>
+        <width>131</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Введіть логін:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Login_11">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>250</y>
+        <width>511</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Passwd_11">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>150</y>
+        <width>511</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 230);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+
+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>260</y>
+        <width>151</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Введіть пароль:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11_3">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>30</y>
+        <width>561</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Вас вітає система інтеренет банкінгу BooblikBank</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="page11_Logo">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>370</y>
+        <width>91</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="okButton_page11">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>410</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 190, 123);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+      </property>
+      <property name="text">
+       <string>Підтвердити &gt; &gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11_4">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>80</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>*** Панель авторизації ***</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page12_CardList">
+     <widget class="QLabel" name="label_12_1">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>60</y>
+        <width>531</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>, вітаємо Вас у системі інтеренет банкінгу BooblikBank   </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_UserName">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12_2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>110</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Оберіть картку зі списку:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="page12_Logo">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>440</y>
+        <width>91</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/imgs/img/bagel_90x95.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addNewCard_Button_page12">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>470</y>
+        <width>241</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>21</pointsize>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 190, 123);
+border-style: solid;
+border-width: 2px;
+border-color: rgb(0, 0, 0);
+
+</string>
+      </property>
+      <property name="text">
+       <string>Додати нову картку</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget_12">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>190</y>
+        <width>711</width>
+        <height>251</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>210</y>
+        <width>681</width>
+        <height>72</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card1"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card1_term"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card1_sum"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>280</y>
+        <width>681</width>
+        <height>72</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card2"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card2_term"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card2_sum"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>350</y>
+        <width>681</width>
+        <height>72</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card3"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card3_term"/>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_card3_sum"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_12_3">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>160</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Термін дії</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12_4">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>160</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>17</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Баланс</string>
       </property>
      </widget>
     </widget>
