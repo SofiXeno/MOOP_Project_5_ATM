@@ -1,0 +1,250 @@
+********************************
+
+atms_list - список банкоматов
+
+to client:
+{
+	"event": "atms_list",
+	"payload":
+		{
+            "atm_id": "", // size_t
+            "bank_name":"", // string
+            "cash":"" // long
+        },
+	"error": "reason" // string
+}
+
+********************************
+
+start_atm - при запуске банкомата проверить не занят ли он, если занят вернуть просто с busy = true,
+				если не занят вернуть с busy = false и изменить на тру
+					(если можна установить на дизконект этого сокета событые, которое изменит busy назад)
+
+to server:
+{
+	"event": "start_atm",
+	"payload": "atm_id" //size_t
+}
+
+to client:
+{
+	"event": "start_atm",
+	"payload":
+		{
+            "atm_id": "", // size_t
+            "bank_name":"", // string
+            "cash":"" // long
+        },
+	"error": "reason" // string
+}
+
+
+Дальше все операции надо как-то проверять, что именно этот банкомат посылает
+
+********************************
+
+insert_card - проверяет доступна ли карточка, если нет, то working = false и наоборот 
+				(если сокет закрывается нужно освободить карту)
+
+to server:
+{
+	"event": "insert_card",
+	"payload":
+		{
+			"atm_id":"atm_id", //size_t (можна сделать мапу атм айди - сокет и валидировать)
+			"number":"n" // string 
+		}
+}
+
+to client:
+{
+	"event": "insert_card",
+	"payload":
+		{
+            "number": "", // string
+            "balance":"", // long
+            "creditAvaliable":"", // long
+            "creditLimit":"", // long
+        	},
+	"error": "reason" // string
+}
+
+********************************
+
+check_pin - ввести пин-код
+
+
+to server:
+{
+	"event": "check_pin",
+	"payload":
+		{
+			"atm_id":"atm_id", //size_t
+			"pin":"n" // 4 digits 
+		}
+}
+
+to client:
+{
+	"event": "check_pin",
+	"payload": "counter" // size_t - лічильник спроб
+	"error": "reason" // string
+}
+
+********************************
+
+free_card - освобождает занятую карту
+
+
+to server:
+{
+	"event": "free_card",
+	"payload": "atm_id" //size_t
+}
+
+to client:
+{
+	"event": "free_card",
+	"error": "reason" // string
+}
+
+********************************
+
+send_to_card - отправить на карту
+
+
+to server:
+{
+	"event": "send_to_card",
+	"payload":
+		{
+			"atm_id":"atm_id", //size_t
+			"number":"n", // string
+			"sum":"n" // long
+		}
+}
+
+to client:
+{
+	"event": "send_to_card",
+	"payload":
+		{
+			"number": "", // string
+			"balance":"", // long
+			"creditAvaliable":"", // long
+			"creditLimit":"", // long
+		},
+	"error": "reason", // string
+}
+
+********************************
+
+take_from_card - снять с карты
+
+
+to server:
+{
+	"event": "take_from_card",
+	"payload":
+		{
+			"atm_id":"atm_id", //size_t
+			"sum":"n" // long
+		}
+}
+
+to client:
+{
+	"event": "take_from_card",
+	"payload":
+		{
+			"number": "", // string
+			"balance":"", // long
+			"creditAvaliable":"", // long
+			"creditLimit":"", // long
+			"atm_cash": "n" // long
+		},
+	"error": "reason", // string
+}
+
+********************************
+
+check_balance - проверить карту (баланс и тп) (обновить короч)
+
+
+to server:
+{
+	"event": "check_balance",
+	"payload": "atm_id" //size_t
+}
+
+to client:
+{
+	"event": "check_balance",
+	"payload":
+		{
+			"number": "", // string
+			"balance":"", // long
+			"creditAvaliable":"", // long
+			"creditLimit":"", // long
+		},
+	"error":"",
+}
+
+********************************
+
+change_pin - изменить пин-код
+
+
+to server:
+{
+	"event": "change_pin",
+	"payload":
+		{
+			"atm_id":"atm_id", //size_t
+			"pin":"n" // 4 digits 
+		}
+}
+
+to client:
+{
+	"event": "change_pin",
+	"error": "reason" // string
+}
+
+
+**
+Дописать QR потом
+**
+
+********************************
+
+qr_success - вход за qr-кодом
+
+to client:					 - client validation ?
+{
+	"event": "qr_success",
+	"payload":
+		{
+	    "number": "", // string	
+            "balance":"", // long
+            "creditAvaliable":"", // long
+            "creditLimit":"", // long
+        },
+	("error": "reason" // string)
+}
+
+
+
+
+*********************************
+functions:
+
+
+insertCard();
+freeCard();
+validatePin();
+changePin();
+sendTo();
+takeFrom();
+checkBal();
+//qr

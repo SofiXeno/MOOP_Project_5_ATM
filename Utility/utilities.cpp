@@ -2,6 +2,7 @@
 #include <QFile>
 #include <qiodevice.h>
 #include <QTextStream>
+#include <QJsonArray>
 #include <QDebug>
 
 
@@ -29,12 +30,30 @@ Utilities &Utilities::getInstance()
     return instance;
 }
 
-QString Utilities::getVariable(const QString &name)
+QVariant Utilities::getVariable(const QString &name)
 {
     if(!map_.contains(name))
     {
        // TODO THROW SOMETHING
         return QString();
     }
-    return map_[name].toString();
+    return map_[name];
 }
+
+QString Utilities::getString(const QString& name)
+{
+    // add checks
+    return getVariable(name).toString();
+}
+
+QList<QString> Utilities::getStringArr(const QString& name)
+{
+    // ADD CHECKS
+    QJsonArray arr(getVariable(name).toJsonArray());
+    QList<QString> res;
+    for(int i = 0; i< arr.size(); ++i)
+        res.append(arr.at(i).toString());
+    return res;
+}
+
+

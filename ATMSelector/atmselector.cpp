@@ -2,6 +2,7 @@
 #include "atmselectorwidget.h"
 #include "ATM/Socket/atmselectorsocket.h"
 #include "ATM/atm.h"
+#include <QJsonArray>
 
 void ATMSelector::updateParams(const QList<ATMParams> & l)
 {
@@ -31,7 +32,7 @@ void ATMSelector::refreshATMParams()
     socket_->askForATMParams();
 }
 
-bool ATMSelector::startATM(int i)
+bool ATMSelector::startATM(const size_t i)
 {
     // TODO
     // check i
