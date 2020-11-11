@@ -2,6 +2,7 @@
 #define ATMSELECTOR_H
 
 #include <QList>
+#include <QObject>
 
 class ATMSelectorSocket;
 class ATMParams;
@@ -9,7 +10,7 @@ class ATMSelectorWidget;
 
 class ATMSelector: public QObject
 {
-    Q_OBJECT
+    Q_OBJECT;
 
 private:
     QList<ATMParams>* params_;

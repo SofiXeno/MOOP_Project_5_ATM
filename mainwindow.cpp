@@ -12,3 +12,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_insertButton_page0_clicked()
+{
+     ui->mainStackedWidget->setCurrentIndex(1);
+}
