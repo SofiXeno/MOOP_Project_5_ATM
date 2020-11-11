@@ -21,10 +21,11 @@ SOURCES += \
     ATM/Socket/atmselectorsocket.cpp \
     ATM/Socket/atmsocket.cpp \
     ATM/atm.cpp \
-    ATM/atmparams.cpp \
+    ATM/Model/atmparams.cpp \
     ATMSelector/atmselector.cpp \
     ATMSelector/atmselectorwidget.cpp \
     Utility/utilities.cpp \
+    ATM/Model/atmcard.cpp \
     main.cpp
 
 HEADERS += \
@@ -32,10 +33,11 @@ HEADERS += \
     ATM/Socket/atmselectorsocket.h \
     ATM/Socket/atmsocket.h \
     ATM/atm.h \
-    ATM/atmparams.h \
+    ATM/Model/atmparams.h \
     ATMSelector/atmselector.h \
     ATMSelector/atmselectorwidget.h \
-    Utility/utilities.h
+    Utility/utilities.h \
+    ATM/Model/atmcard.h
 
 FORMS += \
     ATMSelector/atmselectorwidget.ui

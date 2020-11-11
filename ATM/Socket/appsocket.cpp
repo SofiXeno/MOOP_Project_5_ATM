@@ -1,4 +1,9 @@
 #include "appsocket.h"
+#include "Utility/utilities.h"
+
+QUrl AppSocket::HOST_URL = Utilities::getInstance().getString("ATMSelectorSocket_host_url");
+
+
 
 void AppSocket::doOnConnected()
 {
@@ -50,7 +55,7 @@ QJsonObject AppSocket::toJson(const QString & str)
     return obj;
 }
 
-AppSocket::AppSocket(const QUrl &url, QObject *parent):
+AppSocket::AppSocket(QObject *parent):
     QObject(parent),
     socket_(new QWebSocket())
 {
@@ -60,7 +65,7 @@ AppSocket::AppSocket(const QUrl &url, QObject *parent):
     connect(socket_, static_cast<sslErrorsSignal>(&QWebSocket::sslErrors),
         this, &AppSocket::onSslErrors);
 
-    socket_->open(QUrl(url));
+    socket_->open(QUrl(HOST_URL));
 }
 
 AppSocket::~AppSocket()

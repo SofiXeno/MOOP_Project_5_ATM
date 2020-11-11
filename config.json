@@ -2,8 +2,15 @@
 	"ATMSelectorSocket_host_url" : "wss://boublbank.herokuapp.com",
         "ATMSelectorSocket_event_name" : "get_atms",
 	"ATMSocket_host_url" : "wss://boublbank.herokuapp.com",
-	"ATMSocket_events" : 
-	{
-                "log" : "login"
-	}
+        "ATMSocket_events" :
+            [
+                 "start_atm",
+                 "insert_card",
+                 "check_pin",
+                 "free_card",
+                 "send_to_card",
+                 "take_from_card",
+                 "check_balance",
+                 "change_pin"
+             ]
 }

@@ -10,6 +10,9 @@ class AppSocket : public QObject
 {
     Q_OBJECT
 private:
+
+    static QUrl HOST_URL;
+
     virtual void doOnConnected();
     virtual void doOnDisconnected();
     virtual void doOnTextMessageReceived(const QJsonObject&) = 0;
@@ -18,7 +21,7 @@ private:
     QJsonObject toJson(const QString&);
 
 public:
-    explicit AppSocket(const QUrl &url, QObject *parent = Q_NULLPTR);
+    explicit AppSocket(QObject *parent = Q_NULLPTR);
 
     // TODO COPY AND ETC
 

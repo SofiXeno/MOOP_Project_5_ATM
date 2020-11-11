@@ -16,11 +16,14 @@ private:
 
     QMap<QString, QVariant> map_;
 
+    QVariant getVariable(const QString& name);
+
 public:
     static Utilities& getInstance();
 
-    QString getVariable(const QString& name);
-    QString getVariable(const QString& name, const QString& sub);
+
+    QString getString(const QString& name);
+    QList<QString> getStringArr(const QString& name);
 };
 
 #endif // UTILITIES_H
