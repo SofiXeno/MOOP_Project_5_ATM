@@ -26,7 +26,8 @@ SOURCES += \
     ATMSelector/atmselectorwidget.cpp \
     Utility/utilities.cpp \
     ATM/Model/atmcard.cpp \
-    main.cpp
+    main.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     ATM/Socket/appsocket.h \
@@ -38,16 +39,19 @@ HEADERS += \
     ATMSelector/atmselectorwidget.h \
     Utility/utilities.h \
     ATM/Model/atmcard.h
+    mainwindow.h
 
 FORMS += \
-    ATMSelector/atmselectorwidget.ui
+    ATMSelector/atmselectorwidget.ui \
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES +=
+RESOURCES += \
+    resource.qrc
 
 DISTFILES += \
     config.json
