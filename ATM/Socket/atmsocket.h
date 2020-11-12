@@ -3,8 +3,8 @@
 
 #include <QObject>
 #include "appsocket.h"
-#include "ATM/Model/atmcard.h"
 
+class ATMCard2;
 class ATMParams;
 
 class ATMSocket: public AppSocket
@@ -36,13 +36,13 @@ public:
 signals:
     void replyOnStart(const ATMParams&);
     void replyOnError(const QString&);
-    void replyOnInsertedCard(const ATMCard&, const bool);
+    void replyOnInsertedCard(const ATMCard2&, const bool);
     void replyOnFreeCard();
     void replyOnValidatePin(const size_t);
     void replyOnChangePin();
-    void replyOnSendToCard(const ATMCard&);
-    void replyOnCheckBal(const ATMCard&);
-    void replyOnTakeCash(const ATMCard&, const long);
+    void replyOnSendToCard(const ATMCard2&);
+    void replyOnCheckBal(const ATMCard2&);
+    void replyOnTakeCash(const ATMCard2&, const long);
 };
 
 #endif // ATMSOCKET_H

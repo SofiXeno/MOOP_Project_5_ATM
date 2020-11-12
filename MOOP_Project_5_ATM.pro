@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ATM/Model/atmcard2.cpp \
     ATM/Socket/appsocket.cpp \
     ATM/Socket/atmselectorsocket.cpp \
     ATM/Socket/atmsocket.cpp \
@@ -25,11 +26,10 @@ SOURCES += \
     ATMSelector/atmselector.cpp \
     ATMSelector/atmselectorwidget.cpp \
     Utility/utilities.cpp \
-    ATM/Model/atmcard.cpp \
-    main.cpp \
-    mainwindow.cpp
+    main.cpp
 
 HEADERS += \
+    ATM/Model/atmcard2.h \
     ATM/Socket/appsocket.h \
     ATM/Socket/atmselectorsocket.h \
     ATM/Socket/atmsocket.h \
@@ -37,13 +37,11 @@ HEADERS += \
     ATM/Model/atmparams.h \
     ATMSelector/atmselector.h \
     ATMSelector/atmselectorwidget.h \
-    Utility/utilities.h \
-    ATM/Model/atmcard.h
+    Utility/utilities.h
     mainwindow.h
 
 FORMS += \
-    ATMSelector/atmselectorwidget.ui \
-    mainwindow.ui
+    ATMSelector/atmselectorwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

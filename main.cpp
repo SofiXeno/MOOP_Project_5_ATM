@@ -2,6 +2,7 @@
 #include "Utility/utilities.h"
 #include "ATMSelector/atmselector.h"
 #include "ATMSelector/atmselectorwidget.h"
+#include "ATM/atm.h"
 
 int main(int argc, char *argv[])
 {

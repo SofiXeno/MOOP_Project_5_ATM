@@ -1,7 +1,4 @@
 #include "atm.h"
-#include "ATM/Model/atmparams.h"
-#include "ATM/Model/atmcard.h"
-#include "ATM/Socket/atmsocket.h"
 
 void ATM::backOnStart(const ATMParams & par)
 {
@@ -10,7 +7,7 @@ void ATM::backOnStart(const ATMParams & par)
     emit atmStarted();
 }
 
-void ATM::backInsertCard(const ATMCard &, const bool)
+void ATM::backInsertCard(const ATMCard2 &, const bool)
 {
     emit cardInserted();
 }
@@ -30,17 +27,17 @@ void ATM::backChangePin()
     emit pinChanged();
 }
 
-void ATM::backSendToCard(const ATMCard &)
+void ATM::backSendToCard(const ATMCard2 &)
 {
     emit cashSend();
 }
 
-void ATM::backCheckBal(const ATMCard &)
+void ATM::backCheckBal(const ATMCard2 &)
 {
     emit balChecked();
 }
 
-void ATM::backTakeCash(const ATMCard &, const long)
+void ATM::backTakeCash(const ATMCard2 &, const long)
 {
     emit cashTaken();
 }

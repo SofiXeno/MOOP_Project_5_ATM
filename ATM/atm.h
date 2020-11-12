@@ -2,10 +2,10 @@
 #define ATM_H
 
 #include <QObject>
-#include "ATM/Model/atmparams.h"
 
-class ATMSocket;
-class ATMCard;
+#include "ATM/Model/atmcard2.h"
+#include "ATM/Model/atmparams.h"
+#include "ATM/Socket/atmsocket.h"
 
 class ATM : public QObject
 {
@@ -14,16 +14,16 @@ class ATM : public QObject
 protected:
     ATMSocket* socket_;
     ATMParams* par_;
-    ATMCard* card_;
+    ATMCard2* card_;
 
     void backOnStart(const ATMParams&);
-    void backInsertCard(const ATMCard&, const bool);
+    void backInsertCard(const ATMCard2&, const bool);
     void backFreeCard();
     void backValidatePin(const size_t);
     void backChangePin();
-    void backSendToCard(const ATMCard&);
-    void backCheckBal(const ATMCard&);
-    void backTakeCash(const ATMCard&, const long);
+    void backSendToCard(const ATMCard2&);
+    void backCheckBal(const ATMCard2&);
+    void backTakeCash(const ATMCard2&, const long);
 
     void backError(const QString&);
 

@@ -1,6 +1,7 @@
 #include "atmsocket.h"
 #include "Utility/utilities.h"
 #include "ATM/Model/atmparams.h"
+#include "ATM/Model/atmcard2.h"
 #include <QJsonArray>
 #include <QVariant>
 #include <QJsonValue>
@@ -9,6 +10,7 @@ QList<QString> ATMSocket::EVENT_STRINGS = Utilities::getInstance().getStringArr(
 
 void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
 {
+    ATMCard2("");
     if(in.isEmpty())
         // TODO THROW error
         return;
@@ -33,7 +35,7 @@ void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
             break;
         case EVENTS::INSERT_CARD:
                 emit replyOnInsertedCard(
-                    ATMCard::fromJson(obj),
+                    ATMCard2::fromJson(obj),
                     obj["atm_id"].toBool());
                 break;
         case EVENTS::CHECK_PIN:
@@ -43,13 +45,13 @@ void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
                 emit replyOnFreeCard();
                 break;
         case EVENTS::SEND_TO_CARD:
-                emit replyOnSendToCard(ATMCard::fromJson(obj));
+                emit replyOnSendToCard(ATMCard2::fromJson(obj));
                 break;
         case EVENTS::TAKE_FROM_CARD:
-                emit replyOnTakeCash(ATMCard::fromJson(obj), obj["atm_cash"].toString().toLong());
+                emit replyOnTakeCash(ATMCard2::fromJson(obj), obj["atm_cash"].toString().toLong());
                 break;
         case EVENTS::CHECK_BAL:
-                emit replyOnCheckBal(ATMCard::fromJson(obj));
+                emit replyOnCheckBal(ATMCard2::fromJson(obj));
                 break;
         case EVENTS::CHANGE_PIN:
                 emit replyOnChangePin();
