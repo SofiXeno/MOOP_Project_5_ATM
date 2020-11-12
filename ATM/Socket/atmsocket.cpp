@@ -10,7 +10,6 @@ QList<QString> ATMSocket::EVENT_STRINGS = Utilities::getInstance().getStringArr(
 
 void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
 {
-    ATMCard2("");
     if(in.isEmpty())
         // TODO THROW error
         return;
@@ -34,12 +33,14 @@ void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
             emit replyOnStart(ATMParams::fromJson(obj));
             break;
         case EVENTS::INSERT_CARD:
-                emit replyOnInsertedCard(
-                    ATMCard2::fromJson(obj),
-                    obj["atm_id"].toBool());
+                emit replyOnInsertedCard();
                 break;
         case EVENTS::CHECK_PIN:
+            // error on creating object
                 emit replyOnValidatePin(val.toString().toUInt());
+                break;
+        case EVENTS::SUCCESS_PIN:
+                emit replyOnSuccessPin(ATMCard2::fromJson(obj));
                 break;
         case EVENTS::FREE_CARD:
                 emit replyOnFreeCard();

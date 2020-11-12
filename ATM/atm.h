@@ -17,9 +17,10 @@ protected:
     ATMCard2* card_;
 
     void backOnStart(const ATMParams&);
-    void backInsertCard(const ATMCard2&, const bool);
+    void backInsertCard();
     void backFreeCard();
     void backValidatePin(const size_t);
+    void backPinSuccess(const ATMCard2&);
     void backChangePin();
     void backSendToCard(const ATMCard2&);
     void backCheckBal(const ATMCard2&);
@@ -45,10 +46,11 @@ signals:
     void cardInserted();
     void cardFree();
     void pinValidated(const size_t);
+    void pinSuccess();
     void pinChanged();
     void cashSend();
     void balChecked();
-    void cashTaken();
+    void cashTaken(long money);
     void errorOccured(const QString&);
 };
 

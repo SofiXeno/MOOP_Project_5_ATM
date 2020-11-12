@@ -25,7 +25,6 @@ public:
     ~ATMSelector();
 
    void refreshATMParams();
-   bool startATM(const size_t);
 
 signals:
    void paramsChanged();

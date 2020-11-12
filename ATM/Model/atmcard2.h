@@ -6,16 +6,14 @@
 class ATMCard2
 {
 private:
-    QString number_;
     long bal_;
     long creditAval_;
     long creditLim_;
 
+    ATMCard2(const long, const long, const long);
+
 public:
     static ATMCard2 fromJson(const QJsonObject&);
-
-    ATMCard2(const QString&, const long, const long, const long);
-    ATMCard2(const QString&);
 
     ~ATMCard2();
 

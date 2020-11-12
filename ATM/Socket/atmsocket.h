@@ -14,7 +14,7 @@ class ATMSocket: public AppSocket
 private:
 
     static QList<QString> EVENT_STRINGS;
-    enum EVENTS { START_ATM, INSERT_CARD, CHECK_PIN, FREE_CARD, SEND_TO_CARD, TAKE_FROM_CARD, CHECK_BAL, CHANGE_PIN };
+    enum EVENTS { START_ATM, INSERT_CARD, CHECK_PIN, SUCCESS_PIN, FREE_CARD, SEND_TO_CARD, TAKE_FROM_CARD, CHECK_BAL, CHANGE_PIN };
 
     void doOnTextMessageReceived(const QJsonObject &) override;
 
@@ -36,9 +36,10 @@ public:
 signals:
     void replyOnStart(const ATMParams&);
     void replyOnError(const QString&);
-    void replyOnInsertedCard(const ATMCard2&, const bool);
+    void replyOnInsertedCard();
     void replyOnFreeCard();
     void replyOnValidatePin(const size_t);
+    void replyOnSuccessPin(const ATMCard2&);
     void replyOnChangePin();
     void replyOnSendToCard(const ATMCard2&);
     void replyOnCheckBal(const ATMCard2&);

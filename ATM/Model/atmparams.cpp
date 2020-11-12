@@ -13,14 +13,34 @@ ATMParams::ATMParams(const size_t atm_id, const QString &bank_name,
 
 }
 
-size_t ATMParams::atmId() const
+size_t& ATMParams::atmId()
 {
     return atm_id_;
 }
 
-void ATMParams::setLanguage(const ATMParams::Languages lang)
+QString &ATMParams::bankName()
 {
-    language_ = lang;
+    return bank_name_;
+}
+
+bool &ATMParams::isBusy()
+{
+    return busy_;
+}
+
+bool &ATMParams::isReady()
+{
+    return ready_;
+}
+
+long &ATMParams::money()
+{
+    return money_;
+}
+
+ATMParams::Languages &ATMParams::language()
+{
+    return language_;
 }
 
 ATMParams ATMParams::fromJson(const QJsonValue & val)

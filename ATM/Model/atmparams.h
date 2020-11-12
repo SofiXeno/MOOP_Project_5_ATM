@@ -21,14 +21,12 @@ public:
     ATMParams(const size_t atm_id, const QString& bank_name,
               const bool busy, const bool ready, const long money, const Languages lang);
 
-    size_t atmId() const;
-    const QString& bankName() const;
-    bool isBusy() const;
-    bool isReady() const;
-    long money() const;
-    Languages language() const;
-
-    void setLanguage(const Languages);
+    size_t& atmId();
+    QString& bankName();
+    bool& isBusy();
+    bool& isReady();
+    long& money();
+    Languages& language();
 
     static ATMParams fromJson(const QJsonValue&);
 
