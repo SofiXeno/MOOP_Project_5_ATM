@@ -60,35 +60,35 @@ ATM::~ATM()
 
 void ATM::insertCard(const QString & number)
 {
-    socket_->askInsertCard(par_->atmId(), number);
+    socket_->askInsertCard(number);
 }
 
 void ATM::freeCard()
 {
-    socket_->askFreeCard(par_->atmId());
+    socket_->askFreeCard();
 }
 
 void ATM::validatePin(const size_t pin)
 {
-    socket_->askValidatePin(par_->atmId(), pin);
+    socket_->askValidatePin(pin);
 }
 
 void ATM::changePin(const size_t pin)
 {
-    socket_->askChangePin(par_->atmId(), pin);
+    socket_->askChangePin(pin);
 }
 
 void ATM::sendToCard(const QString & number, const size_t sum)
 {
-    socket_->askSendToCard(par_->atmId(), number, sum);
+    socket_->askSendToCard(number, sum);
 }
 
 void ATM::checkBal()
 {
-    socket_->askCheckBal(par_->atmId());
+    socket_->askCheckBal();
 }
 
 void ATM::takeCash(const size_t sum)
 {
-    socket_->askTakeCash(par_->atmId(), sum);
+    socket_->askTakeCash(sum);
 }

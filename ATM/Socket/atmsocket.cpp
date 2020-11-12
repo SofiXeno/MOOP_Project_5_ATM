@@ -62,13 +62,6 @@ void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
     }
 }
 
-QJsonObject ATMSocket::formJson(const size_t atm_id)
-{
-    QJsonObject obj;
-    obj.insert("atm_id", QString::number(atm_id));
-    return obj;
-}
-
 ATMSocket::ATMSocket(QObject *parent):
     AppSocket(parent)
 {}
@@ -83,48 +76,41 @@ void ATMSocket::askStart(const size_t atm_id)
     sendMessage(EVENT_STRINGS.at(EVENTS::START_ATM), QString::number(atm_id));
 }
 
-void ATMSocket::askInsertCard(const size_t atm_id, const QString & number)
+void ATMSocket::askInsertCard(const QString & number)
 {
-    QJsonObject obj = formJson(atm_id);
-    obj.insert("number", number);
-    sendMessage(EVENT_STRINGS.at(EVENTS::INSERT_CARD), QJsonDocument(obj).toJson());
+    sendMessage(EVENT_STRINGS.at(EVENTS::INSERT_CARD), number);
 }
 
-void ATMSocket::askFreeCard(const size_t atm_id)
+void ATMSocket::askFreeCard()
 {
-    sendMessage(EVENT_STRINGS.at(EVENTS::FREE_CARD), QString::number(atm_id));
+    sendMessage(EVENT_STRINGS.at(EVENTS::FREE_CARD), "");
 }
 
-void ATMSocket::askValidatePin(const size_t atm_id, const size_t pin)
+void ATMSocket::askValidatePin(const size_t pin)
 {
-    QJsonObject obj = formJson(atm_id);
-    obj.insert("pin", QString::number(pin));
-    sendMessage(EVENT_STRINGS.at(EVENTS::CHECK_PIN), QJsonDocument(obj).toJson());
+    sendMessage(EVENT_STRINGS.at(EVENTS::CHECK_PIN), QString::number(pin));
 }
 
-void ATMSocket::askChangePin(const size_t atm_id, const size_t pin)
+void ATMSocket::askChangePin(const size_t pin)
 {
-    QJsonObject obj = formJson(atm_id);
-    obj.insert("pin", QString::number(pin));
-    sendMessage(EVENT_STRINGS.at(EVENTS::CHANGE_PIN), QJsonDocument(obj).toJson());
+    sendMessage(EVENT_STRINGS.at(EVENTS::CHANGE_PIN), QString::number(pin));
 }
 
-void ATMSocket::askSendToCard(const size_t atm_id, const QString & number, const size_t sum)
+void ATMSocket::askSendToCard(const QString & number, const size_t sum)
 {
-    QJsonObject obj = formJson(atm_id);
+    QJsonObject obj;
     obj.insert("number", number);
     obj.insert("sum", QString::number(sum));
     sendMessage(EVENT_STRINGS.at(EVENTS::SEND_TO_CARD), QJsonDocument(obj).toJson());
 }
 
-void ATMSocket::askCheckBal(const size_t atm_id)
+void ATMSocket::askCheckBal()
 {
-    sendMessage(EVENT_STRINGS.at(EVENTS::CHECK_BAL), QString::number(atm_id));
+    sendMessage(EVENT_STRINGS.at(EVENTS::CHECK_BAL), "");
 }
 
-void ATMSocket::askTakeCash(const size_t atm_id, const size_t sum)
+void ATMSocket::askTakeCash(const size_t sum)
 {
-    QJsonObject obj = formJson(atm_id);
-    obj.insert("sum", QString::number(sum));
-    sendMessage(EVENT_STRINGS.at(EVENTS::TAKE_FROM_CARD), QJsonDocument(obj).toJson());
+    sendMessage(EVENT_STRINGS.at(EVENTS::TAKE_FROM_CARD), QString::number(sum));
+
 }

@@ -25,13 +25,13 @@ public:
     ~ATMSocket();
 
     void askStart(const size_t);
-    void askInsertCard(const size_t, const QString&);
-    void askFreeCard(const size_t);
-    void askValidatePin(const size_t, const size_t);
-    void askChangePin(const size_t, const size_t);
-    void askSendToCard(const size_t, const QString&, const size_t);
-    void askCheckBal(const size_t);
-    void askTakeCash(const size_t, const size_t);
+    void askInsertCard(const QString&);
+    void askFreeCard();
+    void askValidatePin(const size_t);
+    void askChangePin(const size_t);
+    void askSendToCard(const QString&, const size_t);
+    void askCheckBal();
+    void askTakeCash(const size_t);
 
 signals:
     void replyOnStart(const ATMParams&);
