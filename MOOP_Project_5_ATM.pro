@@ -26,7 +26,8 @@ SOURCES += \
     ATMSelector/atmselector.cpp \
     ATMSelector/atmselectorwidget.cpp \
     Utility/utilities.cpp \
-    main.cpp
+    main.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     ATM/Model/atmcard2.h \
@@ -37,11 +38,12 @@ HEADERS += \
     ATM/Model/atmparams.h \
     ATMSelector/atmselector.h \
     ATMSelector/atmselectorwidget.h \
-    Utility/utilities.h
+    Utility/utilities.h \
     mainwindow.h
 
 FORMS += \
-    ATMSelector/atmselectorwidget.ui
+    ATMSelector/atmselectorwidget.ui \
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

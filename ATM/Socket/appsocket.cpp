@@ -1,7 +1,7 @@
 #include "appsocket.h"
 #include "Utility/utilities.h"
 
-QUrl AppSocket::HOST_URL = Utilities::getInstance().getString("ATMSelectorSocket_host_url");
+QUrl AppSocket::HOST_URL = Utilities::getInstance().getString("AppSocket_HOSTNAME");
 
 
 

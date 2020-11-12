@@ -1,7 +1,6 @@
 {
-	"ATMSelectorSocket_host_url" : "wss://boublbank.herokuapp.com",
+        "AppSocket_HOSTNAME" : "wss://boublbank.herokuapp.com",
         "ATMSelectorSocket_event_name" : "get_atms",
-	"ATMSocket_host_url" : "wss://boublbank.herokuapp.com",
         "ATMSocket_events" :
             [
                  "start_atm",

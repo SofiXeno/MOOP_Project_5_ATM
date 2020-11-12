@@ -81,7 +81,13 @@ ATM::ATM(const size_t atm_id):
 }
 
 ATM::~ATM()
-{}
+{
+    delete socket_;
+    if(par_ != Q_NULLPTR)
+        delete par_;
+    if(card_ != Q_NULLPTR)
+        delete card_;
+}
 
 void ATM::insertCard(const QString & number)
 {

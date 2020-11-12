@@ -8,8 +8,7 @@
 
 Utilities::Utilities()
 {
-    QString f = "../config.json";
-    QFile file(f);
+    QFile file( "../config.json");
     if (!file.open(QIODevice::ReadOnly)) {
             qDebug() << file.error();
             exit(-100);
