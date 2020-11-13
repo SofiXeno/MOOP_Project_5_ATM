@@ -8,7 +8,7 @@
 
 Utilities::Utilities()
 {
-    QFile file( "../config.json");
+    QFile file( "/Users/sofixeno/Desktop/Booblik/MOOP_Project_5_ATM/config.json");
     if (!file.open(QIODevice::ReadOnly)) {
             qDebug() << file.error();
             exit(-100);

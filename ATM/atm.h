@@ -41,6 +41,8 @@ public:
     void checkBal();
     void takeCash(const size_t);
 
+    ATMCard2 *card() const;
+
 signals:
     void atmStarted();
     void cardInserted();

@@ -26,6 +26,8 @@ public:
 
    void refreshATMParams();
 
+   const QList<ATMParams>* getParams() const;
+
 signals:
    void paramsChanged();
 };

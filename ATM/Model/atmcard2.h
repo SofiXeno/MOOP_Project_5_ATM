@@ -14,6 +14,10 @@ private:
 
 public:
     static ATMCard2 fromJson(const QJsonObject&);
+    const long& bal() const;
+    const long& creditAval() const;
+    const long& creditLim() const;
+
 
     ~ATMCard2();
 

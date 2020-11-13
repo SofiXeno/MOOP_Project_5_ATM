@@ -21,8 +21,8 @@ public:
     ATMParams(const size_t atm_id, const QString& bank_name,
               const bool busy, const bool ready, const long money, const Languages lang);
 
-    size_t& atmId();
-    QString& bankName();
+    const size_t& atmId() const;
+    const QString& bankName() const;
     bool& isBusy();
     bool& isReady();
     long& money();

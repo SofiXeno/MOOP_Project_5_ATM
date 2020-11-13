@@ -13,12 +13,12 @@ ATMParams::ATMParams(const size_t atm_id, const QString &bank_name,
 
 }
 
-size_t& ATMParams::atmId()
+const size_t& ATMParams::atmId() const
 {
     return atm_id_;
 }
 
-QString &ATMParams::bankName()
+const QString &ATMParams::bankName() const
 {
     return bank_name_;
 }
