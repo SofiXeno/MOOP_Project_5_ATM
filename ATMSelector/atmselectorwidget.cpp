@@ -8,6 +8,7 @@ ATMSelectorWidget::ATMSelectorWidget(ATMSelector* out,QWidget *parent) :
     ui_(new Ui::ATMSelectorWidget)
 {
     ui_->setupUi(this);
+
 }
 
 ATMSelectorWidget::~ATMSelectorWidget()

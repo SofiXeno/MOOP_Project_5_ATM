@@ -33,6 +33,8 @@ public:
 
     virtual ~ATM();
 
+    ATMCard2* card();
+
     void insertCard(const QString&);
     void freeCard();
     void validatePin(const size_t);

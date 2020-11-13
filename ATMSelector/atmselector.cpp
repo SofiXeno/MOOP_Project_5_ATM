@@ -27,6 +27,11 @@ ATMSelector::~ATMSelector(){
     delete params_;
 }
 
+QList<ATMParams>* ATMSelector::params()
+{
+    return params_;
+}
+
 void ATMSelector::refreshATMParams()
 {
     socket_->askForATMParams();
