@@ -94,6 +94,11 @@ ATM::~ATM()
         delete card_;
 }
 
+ATMCard2 *ATM::card()
+{
+    return card_;
+}
+
 void ATM::insertCard(const QString & number)
 {
     socket_->askInsertCard(number);

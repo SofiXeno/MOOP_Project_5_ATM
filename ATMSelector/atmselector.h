@@ -24,7 +24,9 @@ public:
 
     ~ATMSelector();
 
-   void refreshATMParams();
+   QList<ATMParams>* params();
+
+    void refreshATMParams();
 
    const QList<ATMParams>* getParams() const;
 
