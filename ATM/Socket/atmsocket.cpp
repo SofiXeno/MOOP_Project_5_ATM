@@ -12,12 +12,12 @@ QList<QString> ATMSocket::EVENT_STRINGS = Utility::getInstance().getStringArr("A
 void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
 {
     //TO REMOVE
-    qDebug() << "Received json (ATMSelectorSocket):\n" << QJsonDocument(in).toBinaryData() << "\n\n";
+    qDebug() << "Received json (ATMSelectorSocket):\n" << QJsonDocument(in).toJson() << "\n\n";
     //TO REMOVE
 
     if(in.isEmpty())
         qFatal("%s", QString(ClientError("ATMSocket on receive empty error",
-                               ClientError::PARSING_ERROR, QJsonDocument(in).toBinaryData())).constData());
+                               ClientError::PARSING_ERROR, QJsonDocument(in).toJson())).toLatin1().constData());
 
     QJsonValue er(in["error"]);
     QJsonValue ev(in["event"]);
@@ -27,7 +27,7 @@ void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
             // check payload enters
             || pl.isNull() || pl.isUndefined() || !pl.isObject())
         qFatal("%s", QString(ClientError("ATMSocket on receive json error",
-                               ClientError::PARSING_ERROR, QJsonDocument(in).toBinaryData())).constData());
+                               ClientError::PARSING_ERROR, QJsonDocument(in).toJson())).toLatin1().constData());
     if(!er.isUndefined() && er.isString())
     {
         qDebug() << "error ATMScoket: \n" << er.toString() << "\n\n";
@@ -66,7 +66,7 @@ void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
                 break;
         default:
                 qFatal("%s", QString(ClientError("ATMSocket on receive json error",
-                               ClientError::UNDEFINED_EVENT, QJsonDocument(in).toBinaryData())).constData());
+                               ClientError::UNDEFINED_EVENT, QJsonDocument(in).toJson())).toLatin1().constData());
     }
 }
 

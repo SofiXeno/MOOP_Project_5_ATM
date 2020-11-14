@@ -27,9 +27,9 @@ ClientError &ClientError::operator=(const ClientError & that)
 
 ClientError::operator QString() const
 {
-    QString res(error_ + " with code: " + code_);
+    QString res(error_ + " with code: " + QString::number(code_));
     if (!add_.isEmpty())
-            res += "\n\nDetails: \n" + add_;
+            res += "\nDetails: \n" + add_;
     return res;
 }
 

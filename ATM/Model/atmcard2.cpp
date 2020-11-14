@@ -9,7 +9,7 @@ ATMCard ATMCard::fromJson(const QJsonObject & obj)
                              obj["creditAvaliable"].toString().toLong(),
                               obj["creditLimit"].toString().toLong());
     } catch (...) {
-        throw ClientError("ATMCard json error", ClientError::PARSING_ERROR, QJsonDocument(obj).toBinaryData());
+        qFatal(QString(ClientError("ATMCard json error", ClientError::PARSING_ERROR, QJsonDocument(obj).toBinaryData())).toLatin1().constData());
     }
 }
 

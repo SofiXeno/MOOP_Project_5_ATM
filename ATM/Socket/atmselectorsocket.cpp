@@ -14,27 +14,29 @@ void ATMSelectorSocket::askForATMParams()
 void ATMSelectorSocket::doOnTextMessageReceived(const QJsonObject & in)
 {
     //TO REMOVE
-    qDebug() << "Received json (ATMSelectorSocket):\n" << QJsonDocument(in).toBinaryData() << "\n\n";
+    qDebug() << "Received json (ATMSelectorSocket):\n" << QJsonDocument(in).toJson() << "\n\n";
     //TO REMOVE
-    QJsonValue val(in["error"]);
     QJsonValue ev(in["event"]);
     QJsonValue pl(in["payload"]);
-    if(val.isNull()
-            || ev.isNull() || ev.isUndefined() || !ev.isString()
-            // check payload enters
-            || pl.isNull() || pl.isUndefined() || !pl.isArray())
+    if(ev.isNull() || ev.isUndefined() || !ev.isString() || pl.isNull() || pl.isUndefined() || !pl.isObject())
         qFatal("%s", QString(ClientError("ATMSelectorSocket on receive json error",
-                       ClientError::PARSING_ERROR, QJsonDocument(in).toBinaryData())).constData());
-    else if(!val.isUndefined() && val.isString()) {
+                       ClientError::PARSING_ERROR, QJsonDocument(in).toJson())).toLatin1().constData());
+    QJsonObject plobj(pl.toObject());
+    QJsonValue er(plobj["error"]);
+    QJsonValue ct(plobj["content"]);
+    if(ct.isNull() || ct.isUndefined() || !ct.isArray())
+        qFatal("%s", QString(ClientError("ATMSelectorSocket on receive json error",
+                       ClientError::PARSING_ERROR, QJsonDocument(in).toJson())).toLatin1().constData());
+    if(!er.isNull() && !er.isUndefined() && er.isString()) {
         // REMOVE
-        qDebug() << "error selector: \n" << val.toString() << "\n\n";
-        emit errorOccured(val.toString());
+        qDebug() << "error selector: \n" << er.toString() << "\n\n";
+        emit errorOccured(er.toString());
     }
     else if(ev.toString() == EVENT_NAME)
-        emit receivedATMParams(parseParams(pl.toArray()));
+        emit receivedATMParams(parseParams(ct.toArray()));
     else
         qFatal("%s", QString(ClientError("ATMSelectorSocket on receive event error",
-                       ClientError::UNDEFINED_EVENT, ev.toString())).constData());
+                       ClientError::UNDEFINED_EVENT, ev.toString())).toLatin1().constData());
 }
 
 QList<ATMParams> ATMSelectorSocket::parseParams(const QJsonArray & ps)
@@ -46,7 +48,7 @@ QList<ATMParams> ATMSelectorSocket::parseParams(const QJsonArray & ps)
         val = ps.at(i);
         if(val.isNull() || val.isUndefined() || !val.isObject())
             qFatal("%s", QString(ClientError("ATMSelectorSocket on parsing array error",
-                           ClientError::PARSING_ERROR, QJsonDocument(ps).toBinaryData())).constData());
+                           ClientError::PARSING_ERROR, QJsonDocument(ps).toJson())).toLatin1().constData());
         res.append(ATMParams::fromJson(ps.at(i).toObject()));
     }
     return res;

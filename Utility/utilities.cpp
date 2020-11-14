@@ -6,7 +6,6 @@
 #include <QJsonArray>
 #include <QDebug>
 
-
 Utility::Utility()
 {
     QFile file("../config.json");
@@ -17,7 +16,7 @@ Utility::Utility()
     QJsonDocument json = QJsonDocument::fromJson(file.readAll(),&jsonError);
     if (jsonError.error != QJsonParseError::NoError)
         qFatal("%s", QString(ClientError("Utilities parsing file error",
-                                       ClientError::PARSING_ERROR, jsonError.errorString())).constData());
+                                       ClientError::PARSING_ERROR, jsonError.errorString())).toLatin1().constData());
     map_ = new QMap<QString, QVariant>(json.toVariant().toMap());
 }
 

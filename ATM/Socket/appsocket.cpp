@@ -25,7 +25,7 @@ void AppSocket::doOnSslErrors(const QList<QSslError> &errors)
     QString res;
     for(int i = 0; i < errors.size(); ++i)
         res += errors[i].errorString();
-    qFatal("%s", res.constData());
+    qFatal("%s", res.toLatin1().constData());
 }
 
 QJsonObject AppSocket::toJson(const QString & str)
@@ -41,13 +41,13 @@ QJsonObject AppSocket::toJson(const QString & str)
         else
         {
             qFatal("%s", QString(ClientError("AppSocket to json error",
-                                             ClientError::PARSING_ERROR, QJsonDocument(obj).toBinaryData())).constData());
+                                             ClientError::PARSING_ERROR, QJsonDocument(obj).toJson())).toLatin1().constData());
         }
     }
     else
     {
         qFatal("%s", QString(ClientError("AppSocket to json error",
-                                         ClientError::PARSING_ERROR, QJsonDocument(obj).toBinaryData())).constData());
+                                         ClientError::PARSING_ERROR, QJsonDocument(obj).toJson())).toLatin1().constData());
     }
 
     return obj;
