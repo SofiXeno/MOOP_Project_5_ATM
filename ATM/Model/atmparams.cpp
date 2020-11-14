@@ -23,6 +23,9 @@ ATMParams::ATMParams(const size_t atm_id, const QString &bank_name, const long c
 
 }
 
+
+const size_t& ATMParams::atmId() const
+
 ATMParams::ATMParams(const ATMParams & p):
     atm_id_(p.atm_id_),
     bank_name_(p.bank_name_),

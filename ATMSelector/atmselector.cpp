@@ -38,3 +38,8 @@ void ATMSelector::refreshATMParams()
 {
     socket_->askForATMParams();
 }
+
+const QList<ATMParams> *ATMSelector::getParams() const
+{
+    return params_;
+}

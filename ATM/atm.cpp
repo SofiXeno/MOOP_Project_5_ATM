@@ -1,6 +1,11 @@
 #include "atm.h"
 #include <assert.h>
 
+ATMCard2 *ATM::card() const
+{
+    return card_;
+}
+
 void ATM::backOnStart(const ATMParams & par)
 {
     assert(par_ == Q_NULLPTR);

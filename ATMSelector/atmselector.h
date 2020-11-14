@@ -31,6 +31,8 @@ public:
     QList<ATMParams>* params();
     void refreshATMParams();
 
+   const QList<ATMParams>* getParams() const;
+
 signals:
    void paramsChanged();
    void errorOccured(const QString&);

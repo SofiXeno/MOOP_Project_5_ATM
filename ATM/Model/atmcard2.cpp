@@ -4,6 +4,27 @@
 
 ATMCard ATMCard::fromJson(const QJsonObject & obj)
 {
+
+    // check
+    return ATMCard2(obj["balance"].toString().toLong(),
+                     obj["creditAvaliable"].toString().toLong(),
+            obj["creditLimit"].toString().toLong());
+}
+
+const long &ATMCard2::bal() const
+{
+    return bal_;
+}
+
+const long &ATMCard2::creditAval() const
+{
+    return creditAval_;
+}
+
+const long &ATMCard2::creditLim() const
+{
+    return creditLim_;
+    
     try {
         return ATMCard(obj["balance"].toString().toLong(),
                              obj["creditAvaliable"].toString().toLong(),
@@ -11,6 +32,7 @@ ATMCard ATMCard::fromJson(const QJsonObject & obj)
     } catch (...) {
         qFatal(QString(ClientError("ATMCard json error", ClientError::PARSING_ERROR, QJsonDocument(obj).toBinaryData())).toLatin1().constData());
     }
+
 }
 
 ATMCard::ATMCard(const long bal, const long credA, const long credL):
