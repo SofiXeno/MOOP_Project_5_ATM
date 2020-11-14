@@ -21,20 +21,14 @@ private:
 
 public:
     ATMSelector(QObject *parent = Q_NULLPTR);
-<<<<<<< Updated upstream
-
-    ~ATMSelector();
-=======
 
     ~ATMSelector();
 
     const QList<ATMParams>* params() const;
 
     void refreshATMParams();
->>>>>>> Stashed changes
 
-   void refreshATMParams();
-   bool startATM(const size_t);
+   const QList<ATMParams>* getParams() const;
 
 signals:
    void paramsChanged();

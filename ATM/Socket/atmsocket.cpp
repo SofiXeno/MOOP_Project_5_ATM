@@ -1,43 +1,53 @@
 #include "atmsocket.h"
 #include "Utility/utilities.h"
 #include "ATM/Model/atmparams.h"
+#include "ATM/Model/atmcard2.h"
+#include "ATM/clienterror.h"
 #include <QJsonArray>
 #include <QVariant>
 #include <QJsonValue>
 
-QList<QString> ATMSocket::EVENT_STRINGS = Utilities::getInstance().getStringArr("ATMSocket_events");
+QList<QString> ATMSocket::EVENT_STRINGS = Utility::getInstance().getStringArr("ATMSocket_events");
 
 void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
 {
+    //TO REMOVE
+    qDebug() << "Received json (ATMSelectorSocket):\n" << QJsonDocument(in).toBinaryData() << "\n\n";
+    //TO REMOVE
+
     if(in.isEmpty())
-        // TODO THROW error
-        return;
-    // CHECK FOR WRONG
-    int i = EVENT_STRINGS.indexOf(in["event"].toString());
-    if (i == -1)
-        // THROW ERROR
-        return;
-    // CHECK FOR ERROR
-    QJsonValue val(in["error"]);
-    if(val.isString())
+        qFatal("%s", QString(ClientError("ATMSocket on receive empty error",
+                               ClientError::PARSING_ERROR, QJsonDocument(in).toBinaryData())).constData());
+
+    QJsonValue er(in["error"]);
+    QJsonValue ev(in["event"]);
+    QJsonValue pl(in["payload"]);
+    if(er.isNull()
+            || ev.isNull() || ev.isUndefined() || !ev.isString()
+            // check payload enters
+            || pl.isNull() || pl.isUndefined() || !pl.isObject())
+        qFatal("%s", QString(ClientError("ATMSocket on receive json error",
+                               ClientError::PARSING_ERROR, QJsonDocument(in).toBinaryData())).constData());
+    if(!er.isUndefined() && er.isString())
     {
-        emit replyOnError(val.toString());
+        qDebug() << "error ATMScoket: \n" << er.toString() << "\n\n";
+        emit replyOnError(er.toString());
         return;
     }
-    val = in["payload"];
-    // may cause error
-    QJsonObject obj = val.toObject();
-    switch (i) {
+    QJsonObject obj = pl.toObject();
+    switch (EVENT_STRINGS.indexOf(ev.toString())) {
         case EVENTS::START_ATM:
             emit replyOnStart(ATMParams::fromJson(obj));
             break;
         case EVENTS::INSERT_CARD:
-                emit replyOnInsertedCard(
-                    ATMCard::fromJson(obj),
-                    obj["atm_id"].toBool());
+                emit replyOnInsertedCard();
                 break;
         case EVENTS::CHECK_PIN:
-                emit replyOnValidatePin(val.toString().toUInt());
+            // error on creating object
+                emit replyOnValidatePin(er.toString().toUInt());
+                break;
+        case EVENTS::SUCCESS_PIN:
+                emit replyOnSuccessPin(ATMCard::fromJson(obj));
                 break;
         case EVENTS::FREE_CARD:
                 emit replyOnFreeCard();
@@ -55,16 +65,9 @@ void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
                 emit replyOnChangePin();
                 break;
         default:
-               // throw error
-               return;
+                qFatal("%s", QString(ClientError("ATMSocket on receive json error",
+                               ClientError::UNDEFINED_EVENT, QJsonDocument(in).toBinaryData())).constData());
     }
-}
-
-QJsonObject ATMSocket::formJson(const size_t atm_id)
-{
-    QJsonObject obj;
-    obj.insert("atm_id", QString::number(atm_id));
-    return obj;
 }
 
 ATMSocket::ATMSocket(QObject *parent):
@@ -81,48 +84,40 @@ void ATMSocket::askStart(const size_t atm_id)
     sendMessage(EVENT_STRINGS.at(EVENTS::START_ATM), QString::number(atm_id));
 }
 
-void ATMSocket::askInsertCard(const size_t atm_id, const QString & number)
+void ATMSocket::askInsertCard(const QString & number)
 {
-    QJsonObject obj = formJson(atm_id);
-    obj.insert("number", number);
-    sendMessage(EVENT_STRINGS.at(EVENTS::INSERT_CARD), QJsonDocument(obj).toJson());
+    sendMessage(EVENT_STRINGS.at(EVENTS::INSERT_CARD), number);
 }
 
-void ATMSocket::askFreeCard(const size_t atm_id)
+void ATMSocket::askFreeCard()
 {
-    sendMessage(EVENT_STRINGS.at(EVENTS::FREE_CARD), QString::number(atm_id));
+    sendMessage(EVENT_STRINGS.at(EVENTS::FREE_CARD), "");
 }
 
-void ATMSocket::askValidatePin(const size_t atm_id, const size_t pin)
+void ATMSocket::askValidatePin(const size_t pin)
 {
-    QJsonObject obj = formJson(atm_id);
-    obj.insert("pin", QString::number(pin));
-    sendMessage(EVENT_STRINGS.at(EVENTS::CHECK_PIN), QJsonDocument(obj).toJson());
+    sendMessage(EVENT_STRINGS.at(EVENTS::CHECK_PIN), QString::number(pin));
 }
 
-void ATMSocket::askChangePin(const size_t atm_id, const size_t pin)
+void ATMSocket::askChangePin(const size_t pin)
 {
-    QJsonObject obj = formJson(atm_id);
-    obj.insert("pin", QString::number(pin));
-    sendMessage(EVENT_STRINGS.at(EVENTS::CHANGE_PIN), QJsonDocument(obj).toJson());
+    sendMessage(EVENT_STRINGS.at(EVENTS::CHANGE_PIN), QString::number(pin));
 }
 
-void ATMSocket::askSendToCard(const size_t atm_id, const QString & number, const size_t sum)
+void ATMSocket::askSendToCard(const QString & number, const size_t sum)
 {
-    QJsonObject obj = formJson(atm_id);
+    QJsonObject obj;
     obj.insert("number", number);
     obj.insert("sum", QString::number(sum));
     sendMessage(EVENT_STRINGS.at(EVENTS::SEND_TO_CARD), QJsonDocument(obj).toJson());
 }
 
-void ATMSocket::askCheckBal(const size_t atm_id)
+void ATMSocket::askCheckBal()
 {
-    sendMessage(EVENT_STRINGS.at(EVENTS::CHECK_BAL), QString::number(atm_id));
+    sendMessage(EVENT_STRINGS.at(EVENTS::CHECK_BAL), "");
 }
 
-void ATMSocket::askTakeCash(const size_t atm_id, const size_t sum)
+void ATMSocket::askTakeCash(const size_t sum)
 {
-    QJsonObject obj = formJson(atm_id);
-    obj.insert("sum", QString::number(sum));
-    sendMessage(EVENT_STRINGS.at(EVENTS::TAKE_FROM_CARD), QJsonDocument(obj).toJson());
+    sendMessage(EVENT_STRINGS.at(EVENTS::TAKE_FROM_CARD), QString::number(sum));
 }

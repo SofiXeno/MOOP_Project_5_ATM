@@ -1,13 +1,10 @@
 #ifndef ATMSELECTORWIDGET_H
 #define ATMSELECTORWIDGET_H
-<<<<<<< Updated upstream
-
-=======
 #include"ATM/Model/atmparams.h"
->>>>>>> Stashed changes
 #include <QMainWindow>
 
 class ATMSelector;
+
 
 namespace Ui {
 class ATMSelectorWidget;
@@ -18,11 +15,21 @@ class ATMSelectorWidget : public QWidget
     Q_OBJECT
 public:
     explicit ATMSelectorWidget(ATMSelector* out, QWidget *parent = nullptr);
+
+    const QStringList takeParamsFromServer(ATMParams &params) const;
+
     ~ATMSelectorWidget();
 
-private slots:
-    void on_refreshButton__clicked();
+    Ui::ATMSelectorWidget *ui() const;
 
+private slots:
+
+    void onParamsUpdated();
+
+    void on_refreshButton_clicked();
+
+//signals:
+//    void on_refreshButton_clicked();
 private:
     ATMSelector* out_;
     Ui::ATMSelectorWidget *ui_;

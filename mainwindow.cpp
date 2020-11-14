@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-<<<<<<< Updated upstream
-=======
 #include <QMessageBox>
 #include "ATM/Model/atmcard2.h"
 #include "ATM/atm.h"
@@ -10,34 +8,29 @@
 #include "ATMSelector/atmselector.h"
 #include "ATMSelector/atmselectorwidget.h"
 
->>>>>>> Stashed changes
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-<<<<<<< Updated upstream
-=======
-    //ui->mainStackedWidget->addWidget()
+    //ui->mainStackedWidget->addWidget(ATMSelectorWidget::ui());
     ui->lineEdit_cardNum->setInputMask("9999-9999-9999-9999");
     ui->lineEdit_anotherCardNum->setInputMask("9999-9999-9999-9999");
-    ui->lineEdit_PIN->setInputMask("9999");
+    //ui->lineEdit_PIN->setInputMask("9999");
+    ui->lineEdit_PIN->setEchoMode(QLineEdit::PasswordEchoOnEdit);
     ui->lineEdit_attemptNum->setInputMask("9");
->>>>>>> Stashed changes
-}
 
+}
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+
+//page 1 -- insert card
 void MainWindow::on_insertButton_page0_clicked()
 {
-<<<<<<< Updated upstream
-     ui->mainStackedWidget->setCurrentIndex(1);
-}
-=======
     ui->mainStackedWidget->setCurrentIndex(4);
 }
 
@@ -197,9 +190,9 @@ void MainWindow::on_cardBalanceButton_clicked()
 {
 
 
-//        QMessageBox::information(this,"Баланс по картці", ATM::checkBal() );
-//        QMessageBox msgBox;
-//        msgBox.setText("The document has been modified.");
+    //        QMessageBox::information(this, "Баланс по картці");
+    //        QMessageBox msgBox;
+    //        msgBox.setText("Баланс на вашій картці = " + ATM::checkBal());
 }
 //--------------------------------------------------------
 
@@ -213,18 +206,19 @@ void MainWindow::on_cardSettingsButton_clicked()
 
 void MainWindow::on_cashWithdrawalButton_clicked()
 {
-     ui->mainStackedWidget->setCurrentIndex(5);
+    ui->mainStackedWidget->setCurrentIndex(5);
 }
 
 
 //page 7 -- settings
-void MainWindow::on_Button_changePin_clicked()
+void MainWindow::on_Button_changePin_clicked()//перехід на сторінку зміни піна
 {
     ui->mainStackedWidget->setCurrentIndex(2);
 }
 
-void MainWindow::on_Button_otherATMs_clicked()
+void MainWindow::on_Button_otherATMs_clicked()//перехід на сторінку з вибором доступних атм
 {
+    //ATMSelectorWidget atm;
 
+    //ui->mainStackedWidget->setCurrentIndex(ui->mainStackedWidget->indexOf())
 }
->>>>>>> Stashed changes

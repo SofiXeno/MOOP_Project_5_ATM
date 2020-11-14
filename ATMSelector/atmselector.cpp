@@ -1,7 +1,7 @@
 #include "atmselector.h"
 #include "atmselectorwidget.h"
 #include "ATM/Socket/atmselectorsocket.h"
-#include "ATM/atm.h"
+#include "ATM/Model/atmparams.h"
 #include <QJsonArray>
 
 void ATMSelector::updateParams(const QList<ATMParams> & l)
@@ -25,14 +25,11 @@ ATMSelector::~ATMSelector(){
     socket_->disconnect();
     delete socket_;
     delete params_;
-<<<<<<< Updated upstream
-=======
 }
 
 const QList<ATMParams>* ATMSelector::params() const
 {
     return params_;
->>>>>>> Stashed changes
 }
 
 void ATMSelector::refreshATMParams()
@@ -40,12 +37,7 @@ void ATMSelector::refreshATMParams()
     socket_->askForATMParams();
 }
 
-bool ATMSelector::startATM(const size_t i)
+const QList<ATMParams> *ATMSelector::getParams() const
 {
-    // TODO
-    // check i
-    // assert();
-//    ATM a(params_->at(i));
-//    a.execute();
-    return true;
+    return params_;
 }

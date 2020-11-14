@@ -2,10 +2,10 @@
 #define ATM_H
 
 #include <QObject>
-#include "ATM/Model/atmparams.h"
 
-class ATMSocket;
-class ATMCard;
+#include "ATM/Model/atmcard2.h"
+#include "ATM/Model/atmparams.h"
+#include "ATM/Socket/atmsocket.h"
 
 class ATM : public QObject
 {
@@ -17,9 +17,10 @@ protected:
     ATMCard* card_;
 
     void backOnStart(const ATMParams&);
-    void backInsertCard(const ATMCard&, const bool);
+    void backInsertCard();
     void backFreeCard();
     void backValidatePin(const size_t);
+    void backPinSuccess(const ATMCard&);
     void backChangePin();
     void backSendToCard(const ATMCard&);
     void backCheckBal(const ATMCard&);
@@ -27,10 +28,16 @@ protected:
 
     void backError(const QString&);
 
+    ATM(const ATM&) = delete;
+    ATM(ATM&&) = delete;
+    ATM& operator=(const ATM&) = delete;
+    ATM& operator=(ATM&&) = delete;
+
 public:
     explicit ATM(const size_t);
-
     virtual ~ATM();
+
+    ATMCard* card();
 
     void insertCard(const QString&);
     void freeCard();
@@ -40,19 +47,17 @@ public:
     void checkBal();
     void takeCash(const size_t);
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 signals:
     void atmStarted();
     void cardInserted();
     void cardFree();
     void pinValidated(const size_t);
+    void pinSuccess();
     void pinChanged();
     void cashSend();
     void balChecked();
-    void cashTaken();
+    void cashTaken(long money);
     void errorOccured(const QString&);
 };
 

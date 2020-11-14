@@ -38,7 +38,7 @@ HEADERS += \
     ATMSelector/atmselector.h \
     ATMSelector/atmselectorwidget.h \
     Utility/utilities.h \
-    ATM/Model/atmcard.h
+    ATM/Model/atmcard.h \
     mainwindow.h
 
 FORMS += \

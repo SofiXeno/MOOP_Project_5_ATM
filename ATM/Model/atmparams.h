@@ -1,7 +1,6 @@
 #ifndef ATMPARAMS_H
 #define ATMPARAMS_H
 
-#include <QString>
 #include <QJsonValue>
 
 class ATMParams
@@ -18,19 +17,22 @@ private:
     Languages language_;
 
 public:
+    static ATMParams fromJson(const QJsonObject&);
+
     ATMParams(const size_t atm_id, const QString& bank_name,
-              const bool busy, const bool ready, const long money, const Languages lang);
+              const bool busy, const bool ready, const long money, const Languages lang = UA);
 
-    size_t atmId() const;
+
+    ATMParams(const ATMParams&);
+    ATMParams& operator=(const ATMParams&);
+
+    const size_t& atmId() const;
     const QString& bankName() const;
-    bool isBusy() const;
-    bool isReady() const;
-    long money() const;
-    Languages language() const;
+    bool& isBusy();
+    bool& isReady();
+    long& money();
+    Languages& language();
 
-    void setLanguage(const Languages);
-
-    static ATMParams fromJson(const QJsonValue&);
 
 };
 

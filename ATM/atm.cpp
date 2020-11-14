@@ -1,53 +1,71 @@
 #include "atm.h"
-<<<<<<< Updated upstream
-#include "ATM/Model/atmparams.h"
-#include "ATM/Model/atmcard.h"
-#include "ATM/Socket/atmsocket.h"
-=======
 #include <assert.h>
 
->>>>>>> Stashed changes
 
 void ATM::backOnStart(const ATMParams & par)
 {
-    // assert par_ == nullptr;
+    assert(par_ == Q_NULLPTR);
     par_ = new ATMParams(par);
     emit atmStarted();
 }
 
-void ATM::backInsertCard(const ATMCard &, const bool)
+void ATM::backInsertCard()
 {
+    assert(card_ == Q_NULLPTR);
     emit cardInserted();
 }
 
 void ATM::backFreeCard()
 {
+    assert(card_ != Q_NULLPTR);
+    delete card_;
+    card_ = Q_NULLPTR;
     emit cardFree();
+}
+
+void ATM::backPinSuccess(const ATMCard & card)
+{
+    assert(card_ == Q_NULLPTR);
+    card_ = new ATMCard(card);
+    emit pinSuccess();
 }
 
 void ATM::backValidatePin(const size_t counter)
 {
+    assert(card_ == Q_NULLPTR);
     emit pinValidated(counter);
 }
 
 void ATM::backChangePin()
 {
+    assert(card_ != Q_NULLPTR);
     emit pinChanged();
 }
 
-void ATM::backSendToCard(const ATMCard &)
+void ATM::backSendToCard(const ATMCard & card)
 {
+    assert(card_ != Q_NULLPTR);
+    delete card_;
+    card_ = new ATMCard(card);
     emit cashSend();
 }
 
-void ATM::backCheckBal(const ATMCard &)
+void ATM::backCheckBal(const ATMCard & card)
 {
+    assert(card_ != Q_NULLPTR);
+    delete card_;
+    card_ = new ATMCard(card);
     emit balChecked();
 }
 
-void ATM::backTakeCash(const ATMCard &, const long)
+void ATM::backTakeCash(const ATMCard & card, const long money)
 {
-    emit cashTaken();
+    assert(card_ != Q_NULLPTR);
+    delete card_;
+    card_ = new ATMCard(card);
+    long m = par_->money();
+    par_->money() = money;
+    emit cashTaken(m - money);
 }
 
 void ATM::backError(const QString & error)
@@ -57,46 +75,64 @@ void ATM::backError(const QString & error)
 
 ATM::ATM(const size_t atm_id):
     socket_(new ATMSocket()),
-    par_(nullptr),
-    card_(nullptr)
+    par_(Q_NULLPTR),
+    card_(Q_NULLPTR)
 {
     socket_->askStart(atm_id);
 }
 
 ATM::~ATM()
-{}
+{
+    delete socket_;
+    if(par_ != Q_NULLPTR)
+        delete par_;
+    if(card_ != Q_NULLPTR)
+        delete card_;
+}
+
+ATMCard *ATM::card()
+{
+    return card_;
+}
 
 void ATM::insertCard(const QString & number)
 {
-    socket_->askInsertCard(par_->atmId(), number);
+    assert(card_ == Q_NULLPTR);
+    socket_->askInsertCard(number);
 }
 
 void ATM::freeCard()
 {
-    socket_->askFreeCard(par_->atmId());
+    assert(card_ != Q_NULLPTR);
+    socket_->askFreeCard();
 }
 
 void ATM::validatePin(const size_t pin)
 {
-    socket_->askValidatePin(par_->atmId(), pin);
+    assert(card_ == Q_NULLPTR);
+    socket_->askValidatePin(pin);
 }
 
 void ATM::changePin(const size_t pin)
 {
-    socket_->askChangePin(par_->atmId(), pin);
+    assert(card_ != Q_NULLPTR);
+    socket_->askChangePin(pin);
 }
 
 void ATM::sendToCard(const QString & number, const size_t sum)
 {
-    socket_->askSendToCard(par_->atmId(), number, sum);
+    assert(card_ != Q_NULLPTR);
+    socket_->askSendToCard(number, sum);
 }
 
 void ATM::checkBal()
 {
-    socket_->askCheckBal(par_->atmId());
+    assert(card_ != Q_NULLPTR);
+    socket_->askCheckBal();
 }
 
 void ATM::takeCash(const size_t sum)
 {
-    socket_->askTakeCash(par_->atmId(), sum);
+    assert(card_ != Q_NULLPTR);
+    socket_->askTakeCash(sum);
 }

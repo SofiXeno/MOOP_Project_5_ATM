@@ -1,5 +1,18 @@
 #include "atmparams.h"
+#include "ATM/clienterror.h"
 #include <QJsonObject>
+#include <QJsonDocument>
+
+ATMParams ATMParams::fromJson(const QJsonObject & obj)
+{
+    try {
+        return ATMParams(obj["atm_id"].toInt(), obj["bank_name"].toString(),
+                 obj["busy"].toBool(),  obj["ready"].toBool(),  obj["cash"].toInt(), ATMParams::Languages::UA);
+    } catch (...) {
+            throw ClientError("ATMParams json error", ClientError::PARSING_ERROR, QJsonDocument(obj).toBinaryData());
+     }
+}
+
 
 ATMParams::ATMParams(const size_t atm_id, const QString &bank_name,
                      const bool busy, const bool ready, const long money, const Languages lang):
@@ -13,9 +26,6 @@ ATMParams::ATMParams(const size_t atm_id, const QString &bank_name,
 
 }
 
-<<<<<<< Updated upstream
-size_t ATMParams::atmId() const
-=======
 ATMParams::ATMParams(const ATMParams & p):
     atm_id_(p.atm_id_),
     bank_name_(p.bank_name_),
@@ -39,21 +49,31 @@ ATMParams &ATMParams::operator=(const ATMParams & that)
 }
 
 const size_t& ATMParams::atmId() const
->>>>>>> Stashed changes
 {
     return atm_id_;
 }
 
-void ATMParams::setLanguage(const ATMParams::Languages lang)
+const QString &ATMParams::bankName() const
 {
-    language_ = lang;
+    return bank_name_;
 }
 
-ATMParams ATMParams::fromJson(const QJsonValue & val)
+bool &ATMParams::isBusy()
 {
-    // CATCH ERRORS
-    // CAST INT TO SIZE_T AND LONG!
-    QJsonObject obj = val.toObject();
-    return ATMParams(obj["atm_id"].toInt(), obj["bank_name"].toString(),
-             obj["busy"].toBool(),  obj["ready"].toBool(),  obj["cash"].toInt(), ATMParams::Languages::UA);
+    return busy_;
+}
+
+bool &ATMParams::isReady()
+{
+    return ready_;
+}
+
+long &ATMParams::money()
+{
+    return money_;
+}
+
+ATMParams::Languages &ATMParams::language()
+{
+    return language_;
 }
