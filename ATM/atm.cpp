@@ -1,5 +1,8 @@
 #include "atm.h"
 #include <assert.h>
+#include "ATM/Model/atmparams.h"
+#include "ATM/Model/atmcard2.h"
+#include "ATM/Socket/atmsocket.h"
 
 
 void ATM::backOnStart(const ATMParams & par)
@@ -63,9 +66,8 @@ void ATM::backTakeCash(const ATMCard & card, const long money)
     assert(card_ != Q_NULLPTR);
     delete card_;
     card_ = new ATMCard(card);
-    long m = par_->money();
-    par_->money() = money;
-    emit cashTaken(m - money);
+    par_->updateCash(money);
+    emit cashTaken(par_->cash());
 }
 
 void ATM::backError(const QString & error)

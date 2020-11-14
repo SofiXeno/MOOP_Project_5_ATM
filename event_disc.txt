@@ -49,23 +49,13 @@ insert_card - проверяет доступна ли карточка, есл�
 to server:
 {
 	"event": "insert_card",
-	"payload":
-		{
-			"atm_id":"atm_id", //size_t (можна сделать мапу атм айди - сокет и валидировать)
-			"number":"n" // string 
-		}
+	"payload":"number":"n" // string 
 }
 
 to client:
 {
 	"event": "insert_card",
-	"payload":
-		{
-            "number": "", // string
-            "balance":"", // long
-            "creditAvaliable":"", // long
-            "creditLimit":"", // long
-        	},
+	"payload":""
 	"error": "reason" // string
 }
 
@@ -77,11 +67,7 @@ check_pin - ввести пин-код
 to server:
 {
 	"event": "check_pin",
-	"payload":
-		{
-			"atm_id":"atm_id", //size_t
-			"pin":"n" // 4 digits 
-		}
+	"payload":"pin":"n" // 4 digits 
 }
 
 to client:
@@ -93,13 +79,29 @@ to client:
 
 ********************************
 
+success_pin - ввести пин-код
+
+to client:
+{
+	"event": "success_pin",
+	"payload":
+		{
+            "balance":"", // long
+            "creditAvaliable":"", // long
+            "creditLimit":"", // long
+        	},
+	"error": "reason" // string
+}
+
+********************************
+
 free_card - освобождает занятую карту
 
 
 to server:
 {
 	"event": "free_card",
-	"payload": "atm_id" //size_t
+	"payload": ""
 }
 
 to client:
@@ -116,9 +118,7 @@ send_to_card - отправить на карту
 to server:
 {
 	"event": "send_to_card",
-	"payload":
-		{
-			"atm_id":"atm_id", //size_t
+	"payload": {
 			"number":"n", // string
 			"sum":"n" // long
 		}
@@ -129,7 +129,6 @@ to client:
 	"event": "send_to_card",
 	"payload":
 		{
-			"number": "", // string
 			"balance":"", // long
 			"creditAvaliable":"", // long
 			"creditLimit":"", // long
@@ -145,11 +144,7 @@ take_from_card - снять с карты
 to server:
 {
 	"event": "take_from_card",
-	"payload":
-		{
-			"atm_id":"atm_id", //size_t
-			"sum":"n" // long
-		}
+	"payload":"sum":"n" // long
 }
 
 to client:
@@ -157,7 +152,6 @@ to client:
 	"event": "take_from_card",
 	"payload":
 		{
-			"number": "", // string
 			"balance":"", // long
 			"creditAvaliable":"", // long
 			"creditLimit":"", // long
@@ -174,7 +168,7 @@ check_balance - проверить карту (баланс и тп) (обнов
 to server:
 {
 	"event": "check_balance",
-	"payload": "atm_id" //size_t
+	"payload": ""
 }
 
 to client:
@@ -182,7 +176,6 @@ to client:
 	"event": "check_balance",
 	"payload":
 		{
-			"number": "", // string
 			"balance":"", // long
 			"creditAvaliable":"", // long
 			"creditLimit":"", // long
@@ -198,16 +191,13 @@ change_pin - изменить пин-код
 to server:
 {
 	"event": "change_pin",
-	"payload":
-		{
-			"atm_id":"atm_id", //size_t
-			"pin":"n" // 4 digits 
-		}
+	"payload":"pin":"n" // 4 digits 
 }
 
 to client:
 {
 	"event": "change_pin",
+	"payload": "",
 	"error": "reason" // string
 }
 

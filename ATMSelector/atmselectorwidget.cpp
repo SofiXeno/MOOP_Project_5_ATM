@@ -10,7 +10,7 @@ ATMSelectorWidget::ATMSelectorWidget(ATMSelector* out,QWidget *parent) :
     ui_(new Ui::ATMSelectorWidget)
 {
     ui_->setupUi(this);
-    connect(out, &ATMSelector::paramsChanged, this, &ATMSelectorWidget::onParamsUpdated);
+    connect(out, SIGNAL(paramsChanged()), this, SLOT(onParamsUpdated()));
 }
 
 
@@ -33,7 +33,12 @@ void ATMSelectorWidget::onParamsUpdated()
     }
 }
 
-void ATMSelectorWidget::on_refreshButton_clicked()
+void ATMSelectorWidget::on_refreshButton__answer()
+{
+    QString("kek");
+}
+
+void ATMSelectorWidget::on_refreshButton__clicked()
 {
     out_->refreshATMParams();
 

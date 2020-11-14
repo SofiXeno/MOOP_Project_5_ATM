@@ -6,25 +6,27 @@
 
 void ATMSelector::updateParams(const QList<ATMParams> & l)
 {
-    QList<ATMParams>* p(params_);
+    if (params_ != Q_NULLPTR)
+        delete params_;
     params_ = new QList<ATMParams>(l);
-    delete p;
     emit paramsChanged();
 }
 
 ATMSelector::ATMSelector(QObject *parent):
     QObject(parent),
-    params_(new QList<ATMParams>),
+    params_(Q_NULLPTR),
     socket_(new ATMSelectorSocket())
 {
-    connect(socket_, &ATMSelectorSocket::receivedATMParams,
-            this, &ATMSelector::updateParams);
+    connect(socket_, &ATMSelectorSocket::receivedATMParams,this, &ATMSelector::updateParams);
+    connect(socket_, &ATMSelectorSocket::errorOccured, this, &ATMSelector::errorOccured);
 }
 
 ATMSelector::~ATMSelector(){
     socket_->disconnect();
     delete socket_;
-    delete params_;
+    if (params_ != Q_NULLPTR)
+        delete params_;
+    disconnect();
 }
 
 const QList<ATMParams>* ATMSelector::params() const
@@ -35,9 +37,4 @@ const QList<ATMParams>* ATMSelector::params() const
 void ATMSelector::refreshATMParams()
 {
     socket_->askForATMParams();
-}
-
-const QList<ATMParams> *ATMSelector::getParams() const
-{
-    return params_;
 }

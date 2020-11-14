@@ -2,6 +2,8 @@
 #include "Utility/utilities.h"
 #include "ATMSelector/atmselector.h"
 #include "ATMSelector/atmselectorwidget.h"
+#include "ATM/atm.h"
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -9,6 +11,8 @@ int main(int argc, char *argv[])
     ATMSelector selector;
     ATMSelectorWidget widget(&selector);
     widget.show();
+
+    //qDebug() << Utility::UtilityError("", Utility::UtilityError::ErrorCodes::FILE_ERROR);
 
   //  selector.refreshATMParams();
 
