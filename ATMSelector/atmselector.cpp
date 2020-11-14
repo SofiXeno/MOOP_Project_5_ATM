@@ -34,11 +34,6 @@ const QList<ATMParams>* ATMSelector::params() const
     return params_;
 }
 
-QList<ATMParams>* ATMSelector::params()
-{
-    return params_;
-}
-
 void ATMSelector::refreshATMParams()
 {
     socket_->askForATMParams();

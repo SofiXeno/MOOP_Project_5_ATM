@@ -1,7 +1,7 @@
 #include "atm.h"
 #include <assert.h>
 #include "ATM/Model/atmparams.h"
-#include "ATM/Model/atmcard.h"
+#include "ATM/Model/atmcard2.h"
 #include "ATM/Socket/atmsocket.h"
 
 

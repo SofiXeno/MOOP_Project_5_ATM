@@ -1,10 +1,7 @@
 #ifndef ATMSELECTORWIDGET_H
 #define ATMSELECTORWIDGET_H
-<<<<<<< Updated upstream
 
-=======
 #include"ATM/Model/atmparams.h"
->>>>>>> Stashed changes
 #include <QMainWindow>
 
 class ATMSelector;
