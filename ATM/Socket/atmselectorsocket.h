@@ -13,12 +13,18 @@ private:
     static QString EVENT_NAME;
 
     void doOnTextMessageReceived(const QJsonObject &) override;
-    QList<ATMParams> parseParams(const QJsonValue&);
+    QList<ATMParams> parseParams(const QJsonArray&);
+
+    ATMSelectorSocket(const ATMSelectorSocket&) = delete;
+    ATMSelectorSocket(ATMSelectorSocket&&) = delete;
+    ATMSelectorSocket& operator=(const ATMSelectorSocket&) = delete;
+    ATMSelectorSocket& operator=(ATMSelectorSocket&&) = delete;
 
 public:
     explicit ATMSelectorSocket(QObject *parent = Q_NULLPTR);
-    ~ATMSelectorSocket();
+    virtual ~ATMSelectorSocket();
 
+public slots:
     void askForATMParams();
 
 signals:

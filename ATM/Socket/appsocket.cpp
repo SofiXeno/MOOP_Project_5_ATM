@@ -1,8 +1,9 @@
 #include "appsocket.h"
 #include "Utility/utilities.h"
+#include <QDebug>
+#include "ATM/clienterror.h"
 
-QUrl AppSocket::HOST_URL = Utilities::getInstance().getString("AppSocket_HOSTNAME");
-
+QUrl AppSocket::HOST_URL = Utility::getInstance().getString("AppSocket_HOSTNAME");
 
 
 void AppSocket::doOnConnected()
@@ -14,20 +15,17 @@ void AppSocket::doOnConnected()
 
 void AppSocket::doOnDisconnected()
 {
-
+    // try to connect againg
+    disconnect();
+    qDebug() << "socket " << socket_ << "\n disconnected!";
 }
 
 void AppSocket::doOnSslErrors(const QList<QSslError> &errors)
 {
-    Q_UNUSED(errors);
-
-    // TODO Deal with errors
-
-    // WARNING: Never ignore SSL errors in production code.
-    // The proper way to handle self-signed certificates is to add a custom root
-    // to the CA store.
-
-    socket_->ignoreSslErrors();
+    QString res;
+    for(int i = 0; i < errors.size(); ++i)
+        res += errors[i].errorString();
+    qFatal("%s", res.constData());
 }
 
 QJsonObject AppSocket::toJson(const QString & str)
@@ -42,14 +40,14 @@ QJsonObject AppSocket::toJson(const QString & str)
         }
         else
         {
-            // TODO THROW ERROR
-            qDebug() << "Document is not an object" << endl;
+            qFatal("%s", QString(ClientError("AppSocket to json error",
+                                             ClientError::PARSING_ERROR, QJsonDocument(obj).toBinaryData())).constData());
         }
     }
     else
     {
-        // TODO THROW ERROR
-        qDebug() << "Invalid JSON...\n" << str << endl;
+        qFatal("%s", QString(ClientError("AppSocket to json error",
+                                         ClientError::PARSING_ERROR, QJsonDocument(obj).toBinaryData())).constData());
     }
 
     return obj;
@@ -70,6 +68,7 @@ AppSocket::AppSocket(QObject *parent):
 
 AppSocket::~AppSocket()
 {
+    disconnect();
     socket_->close();
     delete socket_;
 }

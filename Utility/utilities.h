@@ -4,24 +4,30 @@
 #include <QString>
 #include <QJsonDocument>
 #include <QMap>
+#include <iostream>
 
-class Utilities
+using namespace std;
+
+class Utility
 {
 private:
-    Utilities();
-    Utilities(const Utilities&);
-    Utilities& operator=(const Utilities&);
+    Utility();
 
-    QMap<QString, QVariant> map_;
+    Utility(const Utility&) = delete;
+    Utility(Utility&&) = delete;
+    Utility& operator=(const Utility&) = delete;
+    Utility& operator=(Utility&&) = delete;
+
+    QMap<QString, QVariant>* map_;
 
     QVariant getVariable(const QString& name);
 
 public:
-    static Utilities& getInstance();
+    static Utility& getInstance();
 
     QString getString(const QString& name);
     QList<QString> getStringArr(const QString& name);
-
 };
+
 
 #endif // UTILITIES_H

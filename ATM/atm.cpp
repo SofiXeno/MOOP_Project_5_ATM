@@ -27,10 +27,10 @@ void ATM::backFreeCard()
     emit cardFree();
 }
 
-void ATM::backPinSuccess(const ATMCard2 & card)
+void ATM::backPinSuccess(const ATMCard & card)
 {
     assert(card_ == Q_NULLPTR);
-    card_ = new ATMCard2(card);
+    card_ = new ATMCard(card);
     emit pinSuccess();
 }
 
@@ -46,27 +46,27 @@ void ATM::backChangePin()
     emit pinChanged();
 }
 
-void ATM::backSendToCard(const ATMCard2 & card)
+void ATM::backSendToCard(const ATMCard & card)
 {
     assert(card_ != Q_NULLPTR);
     delete card_;
-    card_ = new ATMCard2(card);
+    card_ = new ATMCard(card);
     emit cashSend();
 }
 
-void ATM::backCheckBal(const ATMCard2 & card)
+void ATM::backCheckBal(const ATMCard & card)
 {
     assert(card_ != Q_NULLPTR);
     delete card_;
-    card_ = new ATMCard2(card);
+    card_ = new ATMCard(card);
     emit balChecked();
 }
 
-void ATM::backTakeCash(const ATMCard2 & card, const long money)
+void ATM::backTakeCash(const ATMCard & card, const long money)
 {
     assert(card_ != Q_NULLPTR);
     delete card_;
-    card_ = new ATMCard2(card);
+    card_ = new ATMCard(card);
     long m = par_->money();
     par_->money() = money;
     emit cashTaken(m - money);
@@ -94,42 +94,49 @@ ATM::~ATM()
         delete card_;
 }
 
-ATMCard2 *ATM::card()
+ATMCard *ATM::card()
 {
     return card_;
 }
 
 void ATM::insertCard(const QString & number)
 {
+    assert(card_ == Q_NULLPTR);
     socket_->askInsertCard(number);
 }
 
 void ATM::freeCard()
 {
+    assert(card_ != Q_NULLPTR);
     socket_->askFreeCard();
 }
 
 void ATM::validatePin(const size_t pin)
 {
+    assert(card_ == Q_NULLPTR);
     socket_->askValidatePin(pin);
 }
 
 void ATM::changePin(const size_t pin)
 {
+    assert(card_ != Q_NULLPTR);
     socket_->askChangePin(pin);
 }
 
 void ATM::sendToCard(const QString & number, const size_t sum)
 {
+    assert(card_ != Q_NULLPTR);
     socket_->askSendToCard(number, sum);
 }
 
 void ATM::checkBal()
 {
+    assert(card_ != Q_NULLPTR);
     socket_->askCheckBal();
 }
 
 void ATM::takeCash(const size_t sum)
 {
+    assert(card_ != Q_NULLPTR);
     socket_->askTakeCash(sum);
 }

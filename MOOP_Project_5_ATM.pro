@@ -23,6 +23,7 @@ SOURCES += \
     ATM/Socket/atmsocket.cpp \
     ATM/atm.cpp \
     ATM/Model/atmparams.cpp \
+    ATM/clienterror.cpp \
     ATMSelector/atmselector.cpp \
     ATMSelector/atmselectorwidget.cpp \
     Utility/utilities.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     ATM/Socket/atmsocket.h \
     ATM/atm.h \
     ATM/Model/atmparams.h \
+    ATM/clienterror.h \
     ATMSelector/atmselector.h \
     ATMSelector/atmselectorwidget.h \
     Utility/utilities.h \

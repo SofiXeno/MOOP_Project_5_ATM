@@ -2,33 +2,40 @@
 #include "Utility/utilities.h"
 #include "ATM/Model/atmparams.h"
 #include "ATM/Model/atmcard2.h"
+#include "ATM/clienterror.h"
 #include <QJsonArray>
 #include <QVariant>
 #include <QJsonValue>
 
-QList<QString> ATMSocket::EVENT_STRINGS = Utilities::getInstance().getStringArr("ATMSocket_events");
+QList<QString> ATMSocket::EVENT_STRINGS = Utility::getInstance().getStringArr("ATMSocket_events");
 
 void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
 {
+    //TO REMOVE
+    qDebug() << "Received json (ATMSelectorSocket):\n" << QJsonDocument(in).toBinaryData() << "\n\n";
+    //TO REMOVE
+
     if(in.isEmpty())
-        // TODO THROW error
-        return;
-    // CHECK FOR WRONG
-    int i = EVENT_STRINGS.indexOf(in["event"].toString());
-    if (i == -1)
-        // THROW ERROR
-        return;
-    // CHECK FOR ERROR
-    QJsonValue val(in["error"]);
-    if(val.isString())
+        qFatal("%s", QString(ClientError("ATMSocket on receive empty error",
+                               ClientError::PARSING_ERROR, QJsonDocument(in).toBinaryData())).constData());
+
+    QJsonValue er(in["error"]);
+    QJsonValue ev(in["event"]);
+    QJsonValue pl(in["payload"]);
+    if(er.isNull()
+            || ev.isNull() || ev.isUndefined() || !ev.isString()
+            // check payload enters
+            || pl.isNull() || pl.isUndefined() || !pl.isObject())
+        qFatal("%s", QString(ClientError("ATMSocket on receive json error",
+                               ClientError::PARSING_ERROR, QJsonDocument(in).toBinaryData())).constData());
+    if(!er.isUndefined() && er.isString())
     {
-        emit replyOnError(val.toString());
+        qDebug() << "error ATMScoket: \n" << er.toString() << "\n\n";
+        emit replyOnError(er.toString());
         return;
     }
-    val = in["payload"];
-    // may cause error
-    QJsonObject obj = val.toObject();
-    switch (i) {
+    QJsonObject obj = pl.toObject();
+    switch (EVENT_STRINGS.indexOf(ev.toString())) {
         case EVENTS::START_ATM:
             emit replyOnStart(ATMParams::fromJson(obj));
             break;
@@ -37,29 +44,29 @@ void ATMSocket::doOnTextMessageReceived(const QJsonObject & in)
                 break;
         case EVENTS::CHECK_PIN:
             // error on creating object
-                emit replyOnValidatePin(val.toString().toUInt());
+                emit replyOnValidatePin(er.toString().toUInt());
                 break;
         case EVENTS::SUCCESS_PIN:
-                emit replyOnSuccessPin(ATMCard2::fromJson(obj));
+                emit replyOnSuccessPin(ATMCard::fromJson(obj));
                 break;
         case EVENTS::FREE_CARD:
                 emit replyOnFreeCard();
                 break;
         case EVENTS::SEND_TO_CARD:
-                emit replyOnSendToCard(ATMCard2::fromJson(obj));
+                emit replyOnSendToCard(ATMCard::fromJson(obj));
                 break;
         case EVENTS::TAKE_FROM_CARD:
-                emit replyOnTakeCash(ATMCard2::fromJson(obj), obj["atm_cash"].toString().toLong());
+                emit replyOnTakeCash(ATMCard::fromJson(obj), obj["atm_cash"].toString().toLong());
                 break;
         case EVENTS::CHECK_BAL:
-                emit replyOnCheckBal(ATMCard2::fromJson(obj));
+                emit replyOnCheckBal(ATMCard::fromJson(obj));
                 break;
         case EVENTS::CHANGE_PIN:
                 emit replyOnChangePin();
                 break;
         default:
-               // throw error
-               return;
+                qFatal("%s", QString(ClientError("ATMSocket on receive json error",
+                               ClientError::UNDEFINED_EVENT, QJsonDocument(in).toBinaryData())).constData());
     }
 }
 
@@ -113,5 +120,4 @@ void ATMSocket::askCheckBal()
 void ATMSocket::askTakeCash(const size_t sum)
 {
     sendMessage(EVENT_STRINGS.at(EVENTS::TAKE_FROM_CARD), QString::number(sum));
-
 }
