@@ -58,11 +58,7 @@
 </string>
     </property>
     <property name="currentIndex">
-<<<<<<< Updated upstream
-     <number>0</number>
-=======
      <number>7</number>
->>>>>>> Stashed changes
     </property>
     <widget class="QWidget" name="page0_cardInsertion">
      <widget class="QLabel" name="page0_Logo">
