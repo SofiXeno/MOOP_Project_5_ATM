@@ -8,7 +8,9 @@
 
 class AppSocket : public QObject
 {
+
     Q_OBJECT
+
 private:
 
     static QUrl HOST_URL;
@@ -20,17 +22,17 @@ private:
 
     QJsonObject toJson(const QString&);
 
+    AppSocket(const AppSocket&) = delete;
+    AppSocket(AppSocket&&) = delete;
+    AppSocket& operator=(const AppSocket&) = delete;
+    AppSocket& operator=(AppSocket&&) = delete;
+
 public:
     explicit AppSocket(QObject *parent = Q_NULLPTR);
-
-    // TODO COPY AND ETC
 
     virtual ~AppSocket();
 
     void sendMessage(const QString&, const QString&);
-
-    //void open();
-    //void close();
 
 public slots:
 

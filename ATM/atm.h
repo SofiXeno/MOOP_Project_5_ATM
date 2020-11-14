@@ -14,26 +14,30 @@ class ATM : public QObject
 protected:
     ATMSocket* socket_;
     ATMParams* par_;
-    ATMCard2* card_;
+    ATMCard* card_;
 
     void backOnStart(const ATMParams&);
     void backInsertCard();
     void backFreeCard();
     void backValidatePin(const size_t);
-    void backPinSuccess(const ATMCard2&);
+    void backPinSuccess(const ATMCard&);
     void backChangePin();
-    void backSendToCard(const ATMCard2&);
-    void backCheckBal(const ATMCard2&);
-    void backTakeCash(const ATMCard2&, const long);
+    void backSendToCard(const ATMCard&);
+    void backCheckBal(const ATMCard&);
+    void backTakeCash(const ATMCard&, const long);
 
     void backError(const QString&);
 
+    ATM(const ATM&) = delete;
+    ATM(ATM&&) = delete;
+    ATM& operator=(const ATM&) = delete;
+    ATM& operator=(ATM&&) = delete;
+
 public:
     explicit ATM(const size_t);
-
     virtual ~ATM();
 
-    ATMCard2* card();
+    ATMCard* card();
 
     void insertCard(const QString&);
     void freeCard();

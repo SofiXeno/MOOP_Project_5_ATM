@@ -1,22 +1,24 @@
-#ifndef ATMCARD2_H
-#define ATMCARD2_H
+#ifndef ATMCARD_H
+#define ATMCARD_H
 
 #include <QJsonObject>
 
-class ATMCard2
+class ATMCard
 {
 private:
     long bal_;
     long creditAval_;
     long creditLim_;
 
-    ATMCard2(const long, const long, const long);
+    ATMCard(const long, const long, const long);
 
 public:
-    static ATMCard2 fromJson(const QJsonObject&);
+    static ATMCard fromJson(const QJsonObject&);
 
-    ~ATMCard2();
+    ~ATMCard();
+    ATMCard(const ATMCard&);
+    ATMCard& operator=(const ATMCard&);
 
 };
 
-#endif // ATMCARD2_H
+#endif // ATMCARD_H

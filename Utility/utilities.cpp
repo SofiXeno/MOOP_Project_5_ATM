@@ -6,48 +6,40 @@
 #include <QDebug>
 
 
-Utilities::Utilities()
+Utility::Utility()
 {
-    QFile file( "../config.json");
+    QFile file("../config.json");
     if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << file.error();
-            exit(-100);
+            qDebug() << file.errorString();
+            throw UtilityError(file.errorString(), UtilityError::FILE_ERROR);
     }
-    //ERROR THROW
     QJsonParseError jsonError;
     QJsonDocument json = QJsonDocument::fromJson(file.readAll(),&jsonError);
-    if (jsonError.error != QJsonParseError::NoError){
-        // TODO THROW ERROR
-    }
-    // TODO CHECK RESULTS
-    map_ = json.toVariant().toMap();
+    if (jsonError.error != QJsonParseError::NoError)
+        throw UtilityError(jsonError.errorString(), UtilityError::PARSING_ERROR);
+    map_ = new QMap<QString, QVariant>(json.toVariant().toMap());
 }
 
-Utilities &Utilities::getInstance()
+Utility &Utility::getInstance()
 {
-    static Utilities instance;
+    static Utility instance;
     return instance;
 }
 
-QVariant Utilities::getVariable(const QString &name)
+QVariant Utility::getVariable(const QString &name)
 {
-    if(!map_.contains(name))
-    {
-       // TODO THROW SOMETHING
-        return QString();
-    }
-    return map_[name];
+    if(!map_->contains(name))
+        throw UtilityError(name, UtilityError::GETTING_ERROR);
+    return (*map_)[name];
 }
 
-QString Utilities::getString(const QString& name)
+QString Utility::getString(const QString& name)
 {
-    // add checks
     return getVariable(name).toString();
 }
 
-QList<QString> Utilities::getStringArr(const QString& name)
+QList<QString> Utility::getStringArr(const QString& name)
 {
-    // ADD CHECKS
     QJsonArray arr(getVariable(name).toJsonArray());
     QList<QString> res;
     for(int i = 0; i< arr.size(); ++i)
@@ -56,3 +48,41 @@ QList<QString> Utilities::getStringArr(const QString& name)
 }
 
 
+
+Utility::UtilityError::UtilityError(const QString & error, const Utility::UtilityError::ErrorCodes code):
+    error_(error),
+    code_(code)
+{}
+
+Utility::UtilityError::UtilityError(const Utility::UtilityError & that)
+{
+    error_ = that.error_;
+    code_ = that.code_;
+}
+
+Utility::UtilityError::~UtilityError()
+{}
+
+const QString& Utility::UtilityError::error() const
+{
+    return error_;
+}
+
+Utility::UtilityError::ErrorCodes Utility::UtilityError::code() const
+{
+    return code_;
+}
+
+Utility::UtilityError::operator QString() const
+{
+    return this->error_ + " with code: " + this->code_;
+}
+
+Utility::UtilityError &Utility::UtilityError::operator=(const Utility::UtilityError & that)
+{
+    if(this == &that)
+        return *this;
+    error_ = that.error_;
+    code_ = that.code_;
+    return *this;
+}

@@ -1,8 +1,8 @@
 #ifndef ATMSELECTOR_H
 #define ATMSELECTOR_H
 
-#include <QList>
 #include <QObject>
+#include <QList>
 
 class ATMSelectorSocket;
 class ATMParams;
@@ -19,17 +19,21 @@ private:
 
     void updateParams(const QList<ATMParams>&);
 
+    ATMSelector(const ATMSelector&) = delete;
+    ATMSelector(const ATMSelector&&) = delete;
+    ATMSelector& operator=(const ATMSelector&) = delete;
+    ATMSelector& operator=(ATMSelector&&) = delete;
+
 public:
-    ATMSelector(QObject *parent = Q_NULLPTR);
+    explicit ATMSelector(QObject *parent = Q_NULLPTR);
+    virtual ~ATMSelector();
 
-    ~ATMSelector();
-
-   QList<ATMParams>* params();
-
+    QList<ATMParams>* params();
     void refreshATMParams();
 
 signals:
    void paramsChanged();
+   void errorOccured(const QString&);
 };
 
 #endif // ATMSELECTOR_H
