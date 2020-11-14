@@ -42,3 +42,9 @@ void ATMSelectorWidget::on_refreshButton_clicked()
 {
     out_->refreshATMParams();
 }
+
+//що відбувається коли ми клікаємо на елемент зі списку
+void ATMSelectorWidget::on_atmsList_itemActivated(QListWidgetItem *item)
+{
+
+}

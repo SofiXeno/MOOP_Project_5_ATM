@@ -3,6 +3,7 @@
 
 #include"ATM/Model/atmparams.h"
 #include <QMainWindow>
+#include<QListWidgetItem>
 
 class ATMSelector;
 
@@ -30,6 +31,8 @@ private slots:
 //signals:
 //    void on_refreshButton_clicked();
     void on_refreshButton_clicked();
+
+    void on_atmsList_itemActivated(QListWidgetItem *item);
 
 private:
     ATMSelector* out_;

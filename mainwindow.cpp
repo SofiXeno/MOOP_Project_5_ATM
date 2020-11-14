@@ -10,12 +10,6 @@
 
 
 
-
-
-
-
-//page 3 QR
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -27,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_anotherCardNum->setInputMask("9999-9999-9999-9999");
     ui->lineEdit_telephoneNum->setInputMask("999-999-99-99");
     ui->lineEdit_enterSum->setInputMask("9999999");//поставити обмеження на картку
-    //ui->lineEdit_PIN->setInputMask("9999");
+    //ui->lineEdit_PIN->setInputMask("9999");//поставити обмеження на ПІН в чотири символи
     ui->lineEdit_PIN->setEchoMode(QLineEdit::PasswordEchoOnEdit);
     ui->lineEdit_attemptNum->setInputMask("9");
 }
@@ -118,9 +112,6 @@ void MainWindow::on_backButton_page4_clicked()
 
 
 //page 2 enter PIN after card insertion (2d index page)
-
-
-
 void MainWindow::on_num1_2_clicked()
 {
     ui->lineEdit_PIN->insert("1");
@@ -196,7 +187,6 @@ void MainWindow::on_lineEdit_PIN_editingFinished()//проверка пина
 
 
 //page 1 -- main card menu
-
 void MainWindow::on_cashTransfersButton_clicked()
 {
     ui->mainStackedWidget->setCurrentIndex(4);
@@ -204,17 +194,15 @@ void MainWindow::on_cashTransfersButton_clicked()
 
 void MainWindow::on_cardBalanceButton_clicked()
 {
-//            QMessageBox::information(this, "Баланс по картці");
-//            QMessageBox msgBox;
-//            msgBox.setText("Баланс на вашій картці = " + ATM::checkBal());
+    //            QMessageBox::information(this, "Баланс по картці");
+    //            QMessageBox msgBox;
+    //            msgBox.setText("Баланс на вашій картці = " + ATM::checkBal());
 }
 
 void MainWindow::on_cardSettingsButton_clicked()
 {
     ui->mainStackedWidget->setCurrentIndex(7);
 }
-
-
 
 void MainWindow::on_cashWithdrawalButton_clicked()
 {
@@ -237,7 +225,7 @@ void MainWindow::on_Button_otherATMs_clicked()//перехід на сторін
 
 
 //page 5 Sum select
-void MainWindow::on_Button_20grn_clicked()
+void MainWindow::on_Button_20grn_clicked()//вивести повідомлення про те що гроші були успішно зняті і показати поточний баланс картки
 {
 
 }
@@ -269,11 +257,154 @@ void MainWindow::on_Button_1000grn_clicked()
 
 void MainWindow::on_backButton_page5_clicked()
 {
-
+    ui->mainStackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_Button_AnySum_clicked()
 {
+    ui->mainStackedWidget->setCurrentIndex(6);
+}
+
+//page 6 Another sum input for take off
+void MainWindow::on_num1_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("1");
+}
+
+void MainWindow::on_num2_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("2");
+}
+
+void MainWindow::on_num3_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("3");
+}
+
+void MainWindow::on_num4_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("4");
+}
+
+void MainWindow::on_num5_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("5");
+}
+
+void MainWindow::on_num6_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("6");
+}
+
+void MainWindow::on_num7_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("7");
+}
+
+void MainWindow::on_num8_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("8");
+}
+
+void MainWindow::on_num9_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("9");
+}
+
+void MainWindow::on_num00_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("00");
+}
+
+void MainWindow::on_num0_6_clicked()
+{
+    ui->lineEdit_enterSum->insert("0");
+}
+
+void MainWindow::on_clearOne_6_clicked()
+{
+    ui->lineEdit_enterSum->backspace();
+}
+
+void MainWindow::on_clearButton_page6_clicked()
+{
+    ui->lineEdit_enterSum->clear();
+}
+
+void MainWindow::on_backButton_page6_clicked()
+{
+    ui->mainStackedWidget->setCurrentIndex(5);
+}
+
+void MainWindow::on_okButton_page6_clicked()//вивести повідомлення про те що гроші були успішно зняті і показати поточний баланс картки
+{
 
 }
-//page 6 Another sum input for take off
+
+//page 3 QR
+
+
+void MainWindow::on_num1_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("1");
+}
+
+void MainWindow::on_num2_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("2");
+}
+
+void MainWindow::on_num3_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("3");
+}
+
+void MainWindow::on_num4_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("4");
+}
+
+void MainWindow::on_num5_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("5");
+}
+
+void MainWindow::on_num6_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("6");
+}
+
+void MainWindow::on_num7_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("7");
+}
+
+void MainWindow::on_num8_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("8");
+}
+
+void MainWindow::on_num9_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("9");
+}
+
+void MainWindow::on_num0_3_clicked()
+{
+    ui->lineEdit_telephoneNum->insert("0");
+}
+
+void MainWindow::on_clearOne_3_clicked()
+{
+    ui->lineEdit_telephoneNum->backspace();
+}
+
+void MainWindow::on_clearButton_page3_clicked()
+{
+    ui->lineEdit_telephoneNum->clear();
+}
+
+void MainWindow::on_okButton_page3_clicked()
+{
+
+}

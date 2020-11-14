@@ -109,6 +109,62 @@ private slots:
 
     void on_Button_AnySum_clicked();
 
+    void on_num1_6_clicked();
+
+    void on_num2_6_clicked();
+
+    void on_num3_6_clicked();
+
+    void on_num4_6_clicked();
+
+    void on_num5_6_clicked();
+
+    void on_num6_6_clicked();
+
+    void on_num7_6_clicked();
+
+    void on_num8_6_clicked();
+
+    void on_num9_6_clicked();
+
+    void on_num00_6_clicked();
+
+    void on_num0_6_clicked();
+
+    void on_clearOne_6_clicked();
+
+    void on_clearButton_page6_clicked();
+
+    void on_backButton_page6_clicked();
+
+    void on_okButton_page6_clicked();
+
+    void on_num1_3_clicked();
+
+    void on_num2_3_clicked();
+
+    void on_num3_3_clicked();
+
+    void on_num4_3_clicked();
+
+    void on_num5_3_clicked();
+
+    void on_num6_3_clicked();
+
+    void on_num7_3_clicked();
+
+    void on_num8_3_clicked();
+
+    void on_num9_3_clicked();
+
+    void on_num0_3_clicked();
+
+    void on_clearOne_3_clicked();
+
+    void on_clearButton_page3_clicked();
+
+    void on_okButton_page3_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
