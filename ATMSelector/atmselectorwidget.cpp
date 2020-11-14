@@ -33,13 +33,12 @@ void ATMSelectorWidget::onParamsUpdated()
     }
 }
 
-
-void ATMSelectorWidget::on_refreshButton__clicked()
-{
-    out_->refreshATMParams();
-}
-
 Ui::ATMSelectorWidget *ATMSelectorWidget::ui() const
 {
     return ui_;
+}
+
+void ATMSelectorWidget::on_refreshButton_clicked()
+{
+    out_->refreshATMParams();
 }

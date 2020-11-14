@@ -25,12 +25,12 @@ public:
 
 private slots:
 
-    void on_refreshButton__clicked();
-
     void onParamsUpdated();
 
 //signals:
 //    void on_refreshButton_clicked();
+    void on_refreshButton_clicked();
+
 private:
     ATMSelector* out_;
     Ui::ATMSelectorWidget *ui_;
