@@ -9,6 +9,13 @@
 #include "ATMSelector/atmselectorwidget.h"
 
 
+
+
+
+
+
+//page 3 QR
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -17,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->mainStackedWidget->addWidget(ATMSelectorWidget::ui());
     ui->lineEdit_cardNum->setInputMask("9999-9999-9999-9999");
     ui->lineEdit_anotherCardNum->setInputMask("9999-9999-9999-9999");
+    ui->lineEdit_telephoneNum->setInputMask("999-999-99-99");
+    ui->lineEdit_enterSum
     //ui->lineEdit_PIN->setInputMask("9999");
     ui->lineEdit_PIN->setEchoMode(QLineEdit::PasswordEchoOnEdit);
     ui->lineEdit_attemptNum->setInputMask("9");
@@ -28,13 +37,13 @@ MainWindow::~MainWindow()
 }
 
 
-//page 1 -- insert card
+//page 0 -- insert card
 void MainWindow::on_insertButton_page0_clicked()
 {
     ui->mainStackedWidget->setCurrentIndex(4);
 }
 
-//page 2 -- enter card number after insertion
+//page 4 -- enter card number after insertion
 void MainWindow::on_num1_4_clicked()
 {
     ui->lineEdit_cardNum->insert("1");
@@ -106,7 +115,7 @@ void MainWindow::on_backButton_page4_clicked()
 }
 
 
-//page enter PIN after card insertion (3d page)
+//page 2 enter PIN after card insertion (2d index page)
 void MainWindow::on_num1_2_clicked()
 {
     ui->lineEdit_PIN->insert("1");
@@ -173,14 +182,14 @@ void MainWindow::on_okButton_page2_clicked()
 }
 //сделать проверку пина
 //сделать скрытие пина под *
-void MainWindow::on_lineEdit_PIN_editingFinished()//проаерка пина
+void MainWindow::on_lineEdit_PIN_editingFinished()//проверка пина
 {
     //connect()
 }
 
 
 
-//page 4 -- main card menu
+//page 1 -- main card menu
 void MainWindow::on_cashTransfersButton_clicked()
 {
     ui->mainStackedWidget->setCurrentIndex(4);
@@ -194,8 +203,6 @@ void MainWindow::on_cardBalanceButton_clicked()
     //        QMessageBox msgBox;
     //        msgBox.setText("Баланс на вашій картці = " + ATM::checkBal());
 }
-//--------------------------------------------------------
-
 
 void MainWindow::on_cardSettingsButton_clicked()
 {
@@ -222,3 +229,46 @@ void MainWindow::on_Button_otherATMs_clicked()//перехід на сторін
 
     //ui->mainStackedWidget->setCurrentIndex(ui->mainStackedWidget->indexOf())
 }
+
+
+//page 5 Sum select
+void MainWindow::on_Button_20grn_clicked()
+{
+
+}
+
+void MainWindow::on_Button_50grn_clicked()
+{
+
+}
+
+void MainWindow::on_Button_100grn_clicked()
+{
+
+}
+
+void MainWindow::on_Button_200grn_clicked()
+{
+
+}
+
+void MainWindow::on_Button_500grn_clicked()
+{
+
+}
+
+void MainWindow::on_Button_1000grn_clicked()
+{
+
+}
+
+void MainWindow::on_backButton_page5_clicked()
+{
+
+}
+
+void MainWindow::on_Button_AnySum_clicked()
+{
+
+}
+//page 6 Another sum input for take off

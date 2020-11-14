@@ -93,6 +93,22 @@ private slots:
 
     void on_Button_otherATMs_clicked();
 
+    void on_Button_20grn_clicked();
+
+    void on_Button_50grn_clicked();
+
+    void on_Button_100grn_clicked();
+
+    void on_Button_200grn_clicked();
+
+    void on_Button_500grn_clicked();
+
+    void on_Button_1000grn_clicked();
+
+    void on_backButton_page5_clicked();
+
+    void on_Button_AnySum_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
