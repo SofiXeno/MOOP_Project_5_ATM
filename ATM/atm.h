@@ -47,6 +47,10 @@ public:
     void checkBal();
     void takeCash(const size_t);
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 signals:
     void atmStarted();
     void cardInserted();

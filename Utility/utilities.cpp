@@ -11,7 +11,7 @@ Utility::Utility()
     QFile file("../config.json");
     if (!file.open(QIODevice::ReadOnly))
         qFatal("%s", QString(ClientError("Utilities on open file error",
-                                       ClientError::FILE_ERROR, file.errorString())).constData());
+                                       ClientError::FILE_ERROR, file.errorString())).toLatin1().constData());
     QJsonParseError jsonError;
     QJsonDocument json = QJsonDocument::fromJson(file.readAll(),&jsonError);
     if (jsonError.error != QJsonParseError::NoError)

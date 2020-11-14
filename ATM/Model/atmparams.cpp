@@ -41,7 +41,7 @@ ATMParams &ATMParams::operator=(const ATMParams & that)
     return *this;
 }
 
-size_t ATMParams::atmId() const
+const size_t& ATMParams::atmId() const
 {
     return atm_id_;
 }

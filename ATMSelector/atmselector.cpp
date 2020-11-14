@@ -29,6 +29,11 @@ ATMSelector::~ATMSelector(){
     disconnect();
 }
 
+const QList<ATMParams>* ATMSelector::params() const
+{
+    return params_;
+}
+
 QList<ATMParams>* ATMSelector::params()
 {
     return params_;

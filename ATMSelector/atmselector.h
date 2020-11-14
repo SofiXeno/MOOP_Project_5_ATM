@@ -28,7 +28,8 @@ public:
     explicit ATMSelector(QObject *parent = Q_NULLPTR);
     virtual ~ATMSelector();
 
-    QList<ATMParams>* params();
+    const QList<ATMParams>* params() const;
+
     void refreshATMParams();
 
 signals:
