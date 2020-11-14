@@ -18,6 +18,7 @@ public:
     ~ATMSelectorWidget();
 
 private slots:
+    void on_refreshButton__answer();
     void on_refreshButton__clicked();
 
 private:
