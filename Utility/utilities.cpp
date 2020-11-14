@@ -1,4 +1,5 @@
 #include "utilities.h"
+#include "ATM/clienterror.h"
 #include <QFile>
 #include <qiodevice.h>
 #include <QTextStream>
@@ -9,14 +10,14 @@
 Utility::Utility()
 {
     QFile file("../config.json");
-    if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << file.errorString();
-            throw UtilityError(file.errorString(), UtilityError::FILE_ERROR);
-    }
+    if (!file.open(QIODevice::ReadOnly))
+        qFatal("%s", QString(ClientError("Utilities on open file error",
+                                       ClientError::FILE_ERROR, file.errorString())).constData());
     QJsonParseError jsonError;
     QJsonDocument json = QJsonDocument::fromJson(file.readAll(),&jsonError);
     if (jsonError.error != QJsonParseError::NoError)
-        throw UtilityError(jsonError.errorString(), UtilityError::PARSING_ERROR);
+        qFatal("%s", QString(ClientError("Utilities parsing file error",
+                                       ClientError::PARSING_ERROR, jsonError.errorString())).constData());
     map_ = new QMap<QString, QVariant>(json.toVariant().toMap());
 }
 
@@ -29,7 +30,8 @@ Utility &Utility::getInstance()
 QVariant Utility::getVariable(const QString &name)
 {
     if(!map_->contains(name))
-        throw UtilityError(name, UtilityError::GETTING_ERROR);
+        qFatal("%s", QString(ClientError("Utilities on getting variable",
+                                       ClientError::FILE_ERROR, name)).constData());
     return (*map_)[name];
 }
 
@@ -45,44 +47,4 @@ QList<QString> Utility::getStringArr(const QString& name)
     for(int i = 0; i< arr.size(); ++i)
         res.append(arr.at(i).toString());
     return res;
-}
-
-
-
-Utility::UtilityError::UtilityError(const QString & error, const Utility::UtilityError::ErrorCodes code):
-    error_(error),
-    code_(code)
-{}
-
-Utility::UtilityError::UtilityError(const Utility::UtilityError & that)
-{
-    error_ = that.error_;
-    code_ = that.code_;
-}
-
-Utility::UtilityError::~UtilityError()
-{}
-
-const QString& Utility::UtilityError::error() const
-{
-    return error_;
-}
-
-Utility::UtilityError::ErrorCodes Utility::UtilityError::code() const
-{
-    return code_;
-}
-
-Utility::UtilityError::operator QString() const
-{
-    return this->error_ + " with code: " + this->code_;
-}
-
-Utility::UtilityError &Utility::UtilityError::operator=(const Utility::UtilityError & that)
-{
-    if(this == &that)
-        return *this;
-    error_ = that.error_;
-    code_ = that.code_;
-    return *this;
 }

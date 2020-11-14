@@ -6,7 +6,7 @@
 class ClientError
 {
 public:
-    enum Codes {PARSING_ERROR, SERVER_REPLY_ERROR, UNDEFINED_EVENT};
+    enum Codes {PARSING_ERROR, SERVER_REPLY_ERROR, UNDEFINED_EVENT, FILE_ERROR};
 
     QString error_;
     Codes code_;

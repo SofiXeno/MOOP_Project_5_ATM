@@ -27,23 +27,6 @@ public:
 
     QString getString(const QString& name);
     QList<QString> getStringArr(const QString& name);
-
-    class UtilityError{
-        public:
-        enum ErrorCodes {FILE_ERROR, PARSING_ERROR, GETTING_ERROR};
-        private:
-            QString error_;
-            ErrorCodes code_;
-
-        public:
-            UtilityError(const QString&, const ErrorCodes);
-            UtilityError(const UtilityError&);
-            ~UtilityError();
-            const QString& error() const;
-            ErrorCodes code() const;
-            operator QString() const;
-            UtilityError& operator=(const UtilityError&);
-    };
 };
 
 
