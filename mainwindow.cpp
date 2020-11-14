@@ -22,15 +22,16 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     //ui->mainStackedWidget->addWidget(ATMSelectorWidget::ui());
+
     ui->lineEdit_cardNum->setInputMask("9999-9999-9999-9999");
     ui->lineEdit_anotherCardNum->setInputMask("9999-9999-9999-9999");
     ui->lineEdit_telephoneNum->setInputMask("999-999-99-99");
-    ui->lineEdit_enterSum
+    ui->lineEdit_enterSum->setInputMask("9999999");//поставити обмеження на картку
     //ui->lineEdit_PIN->setInputMask("9999");
     ui->lineEdit_PIN->setEchoMode(QLineEdit::PasswordEchoOnEdit);
     ui->lineEdit_attemptNum->setInputMask("9");
-
 }
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -115,7 +116,11 @@ void MainWindow::on_backButton_page4_clicked()
 }
 
 
+
 //page 2 enter PIN after card insertion (2d index page)
+
+
+
 void MainWindow::on_num1_2_clicked()
 {
     ui->lineEdit_PIN->insert("1");
@@ -189,7 +194,9 @@ void MainWindow::on_lineEdit_PIN_editingFinished()//проверка пина
 
 
 
+
 //page 1 -- main card menu
+
 void MainWindow::on_cashTransfersButton_clicked()
 {
     ui->mainStackedWidget->setCurrentIndex(4);
@@ -197,11 +204,9 @@ void MainWindow::on_cashTransfersButton_clicked()
 
 void MainWindow::on_cardBalanceButton_clicked()
 {
-
-
-    //        QMessageBox::information(this, "Баланс по картці");
-    //        QMessageBox msgBox;
-    //        msgBox.setText("Баланс на вашій картці = " + ATM::checkBal());
+//            QMessageBox::information(this, "Баланс по картці");
+//            QMessageBox msgBox;
+//            msgBox.setText("Баланс на вашій картці = " + ATM::checkBal());
 }
 
 void MainWindow::on_cardSettingsButton_clicked()

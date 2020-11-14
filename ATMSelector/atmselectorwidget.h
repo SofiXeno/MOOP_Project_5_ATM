@@ -1,5 +1,6 @@
 #ifndef ATMSELECTORWIDGET_H
 #define ATMSELECTORWIDGET_H
+
 #include"ATM/Model/atmparams.h"
 #include <QMainWindow>
 
@@ -24,9 +25,9 @@ public:
 
 private slots:
 
-    void onParamsUpdated();
+    void on_refreshButton__clicked();
 
-    void on_refreshButton_clicked();
+    void onParamsUpdated();
 
 //signals:
 //    void on_refreshButton_clicked();

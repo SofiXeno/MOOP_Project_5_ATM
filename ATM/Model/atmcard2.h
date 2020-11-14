@@ -21,7 +21,6 @@ public:
 
     static ATMCard fromJson(const QJsonObject&);
 
-
     ~ATMCard();
     ATMCard(const ATMCard&);
     ATMCard& operator=(const ATMCard&);

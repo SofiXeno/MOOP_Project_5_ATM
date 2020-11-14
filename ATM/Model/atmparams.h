@@ -11,29 +11,23 @@ public:
 private:
     size_t atm_id_;
     QString bank_name_;
-    bool busy_;
-    bool ready_;
-    long money_;
+    long cash_;
     Languages language_;
 
 public:
     static ATMParams fromJson(const QJsonObject&);
 
-    ATMParams(const size_t atm_id, const QString& bank_name,
-              const bool busy, const bool ready, const long money, const Languages lang = UA);
-
+    ATMParams(const size_t atm_id, const QString& bank_name,const long money, const Languages lang = UA);
 
     ATMParams(const ATMParams&);
     ATMParams& operator=(const ATMParams&);
 
-    const size_t& atmId() const;
+    size_t atmId() const;
     const QString& bankName() const;
-    bool& isBusy();
-    bool& isReady();
-    long& money();
-    Languages& language();
+    Languages language() const;
+    long cash() const;
 
-
+    void updateCash(const long);
 };
 
 #endif // ATMPARAMS_H

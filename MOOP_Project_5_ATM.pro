@@ -1,4 +1,4 @@
-QT       += core gui
+QT += core gui
 QT += websockets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -17,28 +17,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ATM/Model/atmcard2.cpp \
     ATM/Socket/appsocket.cpp \
     ATM/Socket/atmselectorsocket.cpp \
     ATM/Socket/atmsocket.cpp \
     ATM/atm.cpp \
     ATM/Model/atmparams.cpp \
+    ATM/clienterror.cpp \
     ATMSelector/atmselector.cpp \
     ATMSelector/atmselectorwidget.cpp \
     Utility/utilities.cpp \
-    ATM/Model/atmcard.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    ATM/Model/atmcard2.h \
     ATM/Socket/appsocket.h \
     ATM/Socket/atmselectorsocket.h \
     ATM/Socket/atmsocket.h \
     ATM/atm.h \
     ATM/Model/atmparams.h \
+    ATM/clienterror.h \
     ATMSelector/atmselector.h \
     ATMSelector/atmselectorwidget.h \
     Utility/utilities.h \
-    ATM/Model/atmcard.h \
     mainwindow.h
 
 FORMS += \
