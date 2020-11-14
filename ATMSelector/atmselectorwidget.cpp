@@ -22,7 +22,7 @@ ATMSelectorWidget::~ATMSelectorWidget()
 void ATMSelectorWidget::onParamsUpdated()
 {
     ui_->atmsList->clear();
-    const QList<ATMParams> * newAtms(out_->getParams());
+    const QList<ATMParams> * newAtms(out_->params());
     for(int i = 0; i < newAtms->length(); ++i){
         const ATMParams* p = &(newAtms->at(i));
         QString item("АТМ: ");
@@ -33,16 +33,10 @@ void ATMSelectorWidget::onParamsUpdated()
     }
 }
 
-void ATMSelectorWidget::on_refreshButton__answer()
-{
-    QString("kek");
-}
 
 void ATMSelectorWidget::on_refreshButton__clicked()
 {
     out_->refreshATMParams();
-
-
 }
 
 Ui::ATMSelectorWidget *ATMSelectorWidget::ui() const

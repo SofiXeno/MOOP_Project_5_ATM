@@ -25,12 +25,9 @@ public:
 
 private slots:
 
-    void on_refreshButton__answer();
     void on_refreshButton__clicked();
 
-
     void onParamsUpdated();
-    void on_refreshButton_clicked();
 
 //signals:
 //    void on_refreshButton_clicked();
