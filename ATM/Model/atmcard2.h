@@ -13,15 +13,7 @@ private:
     ATMCard(const long, const long, const long);
 
 public:
-
-    static ATMCard2 fromJson(const QJsonObject&);
-    const long& bal() const;
-    const long& creditAval() const;
-    const long& creditLim() const;
-
-
     static ATMCard fromJson(const QJsonObject&);
-
 
     ~ATMCard();
     ATMCard(const ATMCard&);
