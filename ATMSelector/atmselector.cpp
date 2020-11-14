@@ -25,6 +25,14 @@ ATMSelector::~ATMSelector(){
     socket_->disconnect();
     delete socket_;
     delete params_;
+<<<<<<< Updated upstream
+=======
+}
+
+const QList<ATMParams>* ATMSelector::params() const
+{
+    return params_;
+>>>>>>> Stashed changes
 }
 
 void ATMSelector::refreshATMParams()

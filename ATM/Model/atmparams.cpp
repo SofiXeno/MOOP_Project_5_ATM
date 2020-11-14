@@ -13,7 +13,33 @@ ATMParams::ATMParams(const size_t atm_id, const QString &bank_name,
 
 }
 
+<<<<<<< Updated upstream
 size_t ATMParams::atmId() const
+=======
+ATMParams::ATMParams(const ATMParams & p):
+    atm_id_(p.atm_id_),
+    bank_name_(p.bank_name_),
+    busy_(p.busy_),
+    ready_(p.ready_),
+    money_(p.money_),
+    language_(p.language_)
+{}
+
+ATMParams &ATMParams::operator=(const ATMParams & that)
+{
+    if(this == &that)
+        return *this;
+    atm_id_ = that.atm_id_;
+    bank_name_ = that.bank_name_;
+    busy_ = that.busy_;
+    ready_ = that.ready_;
+    money_ = that.money_;
+    language_ = that.language_;
+    return *this;
+}
+
+const size_t& ATMParams::atmId() const
+>>>>>>> Stashed changes
 {
     return atm_id_;
 }

@@ -1,7 +1,12 @@
 #include "atm.h"
+<<<<<<< Updated upstream
 #include "ATM/Model/atmparams.h"
 #include "ATM/Model/atmcard.h"
 #include "ATM/Socket/atmsocket.h"
+=======
+#include <assert.h>
+
+>>>>>>> Stashed changes
 
 void ATM::backOnStart(const ATMParams & par)
 {

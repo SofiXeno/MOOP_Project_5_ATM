@@ -8,12 +8,21 @@
 
 Utilities::Utilities()
 {
+<<<<<<< Updated upstream
     QString f = "../config.json";
     QFile file(f);
     if (!file.open(QIODevice::ReadOnly)) {
             qDebug() << file.error();
             exit(-100);
     }
+=======
+
+//    QFile file( "/Users/sofixeno/Desktop/Booblik/MOOP_Project_5_ATM/config.json");
+//    if (!file.open(QIODevice::ReadOnly)) {
+//            qDebug() << file.error();
+//            exit(-100);
+//    }
+>>>>>>> Stashed changes
     //ERROR THROW
     QJsonParseError jsonError;
     QJsonDocument json = QJsonDocument::fromJson(file.readAll(),&jsonError);
